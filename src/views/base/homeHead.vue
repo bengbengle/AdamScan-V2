@@ -28,9 +28,9 @@
                             <div :class="isActive==1?'default_active':'menu_div'" style="width: 17%;">
                                 <el-menu-item index="home">Home</el-menu-item>
                             </div>
-                            <div :class="isActive==2?'default_active':'menu_div'">
+                            <!-- <div :class="isActive==2?'default_active':'menu_div'">
                                 <el-menu-item index="account">Account</el-menu-item>
-                            </div>
+                            </div> -->
                             <div :class="isActive==3?'default_active':'menu_div'" style="width: 23%">
                                 <el-menu-item index="leaderboard">Leaderboard</el-menu-item>
                             </div>
@@ -64,7 +64,8 @@
                         </div>
                         <el-input size="large" placeholder="Please enter the content" v-model="searchValue" :class="classValue">
                             <div class="select_div" slot="prepend">
-                                <el-select class="select_button font-black" style="color: white" v-model="searchType" placeholder="All Types">
+                                <el-select class="select_button font-black" style="color: white" v-model="searchType" 
+                                placeholder="Address">
                                     <el-option
                                             v-for="item in options"
                                             :key="item.value"
@@ -126,7 +127,7 @@
                 activeClass: "default_active",
                 isActive: "home",
                 activeColor: '#FF6B22',
-                searchType: '',
+                searchType: '1',
                 isShowPer: false,
                 isShowPri: false,
                 searchValue: '',
@@ -226,19 +227,19 @@
 
             },
             handleIconClick(){
-                if(this.searchType.trim() == "" || this.searchType == undefined){
-                    this.$message({
-                        message: 'Select a query type',
-                        type: 'warning'
-                    })
-                    return
-                }
-                sessionStorage.setItem("searchType",this.searchType);
+                // if(this.searchType.trim() == "" || this.searchType == undefined){
+                //     this.$message({
+                //         message: 'Select a query type',
+                //         type: 'warning'
+                //     })
+                //     return
+                // }
+                // sessionStorage.setItem("searchType",this.searchType);
                 sessionStorage.setItem("searchValue",this.searchValue);
                 //获取当前路由信息
                 let path = this.$route.path;
                 let params = {
-                    searchType: this.searchType,
+                    searchType: 1,
                     searchValue: this.searchValue,
                 }
                 console.info("输入参数:" + JSON.stringify(params))
@@ -251,20 +252,23 @@
             },
             getAdamPrice(){
                 var price = 0;
+                var that = this 
                 // eslint-disable-next-line no-undef
                 jquery.ajax({
                     type: "GET",
                     url: "https://bsc.api.0x.org/swap/v1/price?sellToken=0xdde077002982956DF24E23E3f3743BA5e56929fe&buyToken=0x55d398326f99059ff775485246999027b3197955&sellAmount=10000000",
-                    async: false,
+                    // async: false,
                     success: function (res) {
                         price = res.price
+                        that.title = "$ " + that.showValue(price)
                         // console.info(JSON.stringify(res))
                     },
                     error: function () {
-                        alert("网络错误")
+                        that.title = '-'
+                        // alert("网络错误")
                     }
                 })
-                this.title = "$ " + this.showValue(price)
+                // this.title = "$ " + this.showValue(price)
             },
             showValue(value){
                 if(value == "-"){

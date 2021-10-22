@@ -64,7 +64,7 @@
                             </div>
                         </el-col>
                     </el-row>
-                    <el-row style="margin-top: 31px;">
+                    <!-- <el-row style="margin-top: 31px;">
                         Quick Links
                     </el-row>
                     <el-row style="margin-top: 26px">
@@ -80,9 +80,9 @@
                         <el-col :span="6"></el-col>
                         <el-col :span="6"></el-col>
                         <el-col :span="6"></el-col>
-                    </el-row>
+                    </el-row> -->
                 </div>
-                <div class="footer_font_content right_div">
+                <!-- <div class="footer_font_content right_div">
                     <el-row>Partner</el-row>
 
                     <el-row style="margin-top: 34px">
@@ -103,7 +103,7 @@
                     </el-row>
                     <el-row style="margin-top: 24px"></el-row>
                     <el-row style="margin-top: 24px"></el-row>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- 底部结束 -->

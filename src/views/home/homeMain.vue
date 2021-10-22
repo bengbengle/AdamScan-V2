@@ -61,7 +61,8 @@
                         </el-col>
                         <el-col :span="8">
                             <el-row style="padding-top: 50px">
-                                {{simpData.rate}} ADAM/TIB
+                                <!-- {{simpData.rate}} -->
+                                30 ADAM/TIB
                             </el-row>
                             <el-row class="second_text">
                                 Number of active nodes
@@ -121,7 +122,7 @@
                     totalPower: "", //全网总算力
                     totalAdam: "", //全网质押量
                     totalNode: "", //活跃节点数
-                    rate: "",   //当前算力比
+                    rate: "30",   //当前算力比
                     profit_24: "",  //24小时产出量
                     power_24: "",   //24小时新增算力
                 },
@@ -154,20 +155,23 @@
             },
             getAdamPrice(){
                 var price = 0;
+                var that = this
                 // eslint-disable-next-line no-undef
                 jquery.ajax({
                     type: "GET",
                     url: "https://bsc.api.0x.org/swap/v1/price?sellToken=0xdde077002982956DF24E23E3f3743BA5e56929fe&buyToken=0x55d398326f99059ff775485246999027b3197955&sellAmount=10000000",
-                    async: false,
+                    // async: false,
                     success: function (res) {
                         price = res.price
+                        that.adamPrice = price
                         // console.info(JSON.stringify(res))
                     },
                     error: function () {
-                        alert("网络错误")
+                        that.adamPrice = '-'
+                        // alert("网络错误")
                     }
                 })
-                this.adamPrice = price
+                // this.adamPrice = price
             },
             // getAdamTypeLists(params) {
             //     // console.info("我要去搜索了")

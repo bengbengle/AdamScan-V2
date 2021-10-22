@@ -5,7 +5,10 @@
                   :cell-style="cellStyle"
                   @row-click="clickEvent"
                   class="data">
-            <el-table-column min-width="200" style="text-align: center;" prop="address" label="address" show-overflow-tooltip> </el-table-column>
+            <el-table-column min-width="50" style="text-align: center;" prop="rank" label="rank" show-overflow-tooltip>
+            </el-table-column>
+            <el-table-column min-width="200" style="text-align: center;" prop="address" label="address" show-overflow-tooltip>
+            </el-table-column>
             <el-table-column min-width="100" prop="poolName" label="Label" show-overflow-tooltip> </el-table-column>
             <el-table-column v-if="show" min-width="200" prop="nodeNum" label="Number of child nodes"> </el-table-column>
             <el-table-column v-if="!show" min-width="200" prop="nodeNum" label="Child nodes"> </el-table-column>
@@ -27,7 +30,6 @@
                 :total="total">
         </el-pagination>
     </div>
-    <!--                            <pagination v-show="total>0" :total="total" :page.sync="query.currentPage" :limit.sync="query.pageSize" @pagination="getList" />-->
 </template>
 
 <script>
@@ -64,7 +66,9 @@
         mounted() {
             //获取全网总算力
             this.getList()
+            console.log('props', this.sort)
         },
+        props: ['sort'],
         methods: {
             //点击跳转
             clickEvent(row){
@@ -87,43 +91,25 @@
                 this.currentPage = currentPage;
                 this.getList()
             },
-            // getAllPledgeInfo(){
-            //     var params = {};
-            //     getAllPledgeInfo(params).then(
-            //         res => {
-            //             // eslint-disable-next-line no-empty
-            //             if(res != undefined && res.errorCode === 1000) {
-            //                 this.totalPledge = res.content.total_power
-            //             }else{
-            //                 this.$message({
-            //                     message: res.message,
-            //                     type: 'error'
-            //                 });
-            //             }
-            //         }
-            //     ).catch(()=>{
-            //     })
-            // },
             getList(address,name){
+                console.log('name', name)
                 var params = {
                     currentPage: this.currentPage.toString(),
                     pageSize: this.pageSize.toString(),
                     address: address,
                     pool_name: name,
+                    sort: this.sort || 'power'
                 };
                 //由于push数据的原因，因此，每次查询前需要清空数据
                 // this.allData = []
                 getSortList(params).then(
                     res => {
                         if(res != undefined && res.code === 200) {
+                            res.data.records&&res.data.records.forEach((m, i)=> {
+                                return m.rank = i + 1
+                            })
                             this.allData = res.data.records
-                            // for (var i = 0; i < data.length; i++) {
-                            //     var item = data[i]
-                            //     var param = {
-                            //         address: item.address,
-                            //     }
-                            //     this.getNodeCount(param,item)
-                            // }
+                            
                             //手动计算
                             this.total = res.total
                         }else{
@@ -133,8 +119,7 @@
                             });
                         }
                     }
-                ).catch(()=>{
-                })
+                )
             },
             // getProfitCount(param,item){
             //     getProfitCount(param).then(

@@ -3,7 +3,10 @@
         <div style="width: 90%;padding: 2% 5%">
             <el-tabs class="text_css" v-model="activeName" @tab-click="handleClick">
                 <el-tab-pane label="Computing power ranking" name="cpr">
-                    <PageList ref="pageListData"></PageList>
+                    <PageList sort='power' ref="pageListData"></PageList>
+                </el-tab-pane>
+                <el-tab-pane label="Child number ranking" name="number">
+                    <PageList sort='node' ref="pageListData"></PageList>
                 </el-tab-pane>
 <!--                <el-tab-pane label="Child node ranking" name="cnr">-->
 <!--                    <CnrData></CnrData>-->
@@ -32,8 +35,9 @@
             }
         },
         methods: {
-            handleClick(){
-
+            handleClick(e){
+                e.index == '0' ? this.activeName = 'cpr' : this.activeName = 'number'
+                // console.log('name', name)
             },
             changeList(){
                 this.$refs.pageListData.updateList(false);

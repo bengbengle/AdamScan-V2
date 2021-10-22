@@ -322,15 +322,15 @@
                         var data = res.data[0];
                         // console.info("获取参数：" + JSON.stringify(res))
                         if(res != undefined && res.code == 200){
-                            this.poolName = data.poolName
+                            this.poolName = data && data.poolName || '-'
                             //获取子节点个数
                             // this.getSortList("",this.address)
                             //当前子节点数
-                            this.dataList.one = data.count
+                            this.dataList.one = data && data.count || '-'
                             //当前算力
-                            this.dataList.two = data.power
+                            this.dataList.two = data&& data.power || '-'
                             //排名
-                            this.dataList.three = data.sort
+                            this.dataList.three = data&& data.sort || '-'
                             //根据参数更新饼状图信息
                             this.pieEcharts(data)
                         }else{
