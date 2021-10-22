@@ -2,7 +2,7 @@ import axios from "axios";
 import { Message } from "element-ui";
 
 // const baseURL = "http://192.168.0.32:9094/";
-const baseURL = "http://47.241.183.80:10001/";
+const baseURL = "http://47.241.91.209:10007/";
 // const baseURL = "https://www.hnicae.com/";
 // const baseURL = "http://localhost:8082/";
 // create an axios instance
