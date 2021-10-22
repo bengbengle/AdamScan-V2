@@ -98,7 +98,7 @@
                     pageSize: this.pageSize.toString(),
                     address: address,
                     pool_name: name,
-                    sort: this.sort || 'power'
+                    sort: this.sort && this.sort || 'power'
                 };
                 //由于push数据的原因，因此，每次查询前需要清空数据
                 // this.allData = []
