@@ -201,6 +201,7 @@ body{
     margin: 0px 13.5%;
     float: left;
     background: transparent;
+    min-width: 1280px;
 }
 .data_area:first-child.el-row{
     text-align: center;

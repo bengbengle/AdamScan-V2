@@ -64,7 +64,7 @@
                         </div>
                         <el-input size="large" placeholder="Please enter the content" v-model="searchValue" :class="classValue">
                             <div class="select_div" slot="prepend">
-                                <el-select class="select_button font-black" style="color: white" v-model="searchType" 
+                                <el-select class="select_button font-black" style="color: white" disabled v-model="searchType" 
                                 placeholder="Address">
                                     <el-option
                                             v-for="item in options"

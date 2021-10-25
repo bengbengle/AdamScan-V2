@@ -193,7 +193,7 @@
             // console.info("-------------------------------")
             if(!this.isActiveMethod){
                 var params = {
-                    searchType:  sessionStorage.getItem('searchType'),
+                    searchType: 1, // sessionStorage.getItem('searchType') || 0,
                     searchValue:  sessionStorage.getItem('searchValue'),
                 }
                 // console.info("未激活入参:" + JSON.stringify(params))
@@ -279,10 +279,10 @@
             //更新页面数据
             initPageData(params){
                 // console.info("页面更新入参：" + JSON.stringify(params))
+                console.log('params::', params)
                 this.isActiveMethod = false
-                if(params.searchType == null || params.searchType.trim() == "" || params.searchType == "0"){
-                    return
-                }
+                if(!params ) return
+
                 // console.info("页面参数:" + params.searchType)
                 // console.info("页面参数判断:" + (params.searchType == "1"))
                 // console.info("页面参数判断:" + (params.searchType == 1))
@@ -293,6 +293,7 @@
                 }else if(params.searchType == 2){
                     this.getSortList()
                 }
+                
                 this.changeList()
                 //更新线状图信息
                 this.barEcharts()
