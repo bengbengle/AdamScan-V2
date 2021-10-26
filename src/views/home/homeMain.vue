@@ -6,7 +6,7 @@
                     <el-col :span="8">
                         <div class="first_data">
                             <el-row style="padding-top: 50px">
-                                $ {{showValue(adamPrice)}}
+                                ${{showValue(adamPrice)}}
                             </el-row>
                             <el-row class="second_text">
                                 ADAM price
@@ -26,7 +26,6 @@
                                 <el-tooltip class="item" effect="dark" content="Real-time calculation of the network power" placement="right"> 
                                      <el-image class="data_icon" :src="excIcon"></el-image>
                                 </el-tooltip>
-                                <!-- <el-image class="data_icon" :src="excIcon"></el-image> -->
                             </el-row>
                         </div>
                     </el-col>
@@ -74,15 +73,13 @@
                         </el-col>
                         <el-col :span="8">
                             <el-row style="padding-top: 50px">
-                                <!-- {{simpData.rate}} -->
                                 30 ADAM/TIB
                             </el-row>
                             <el-row class="second_text">
-                                The number of ADAM pledged per T 
+                                The number of ADAM pledged per T
                                 <el-tooltip class="item" effect="dark" content="The number of ADAM pledged per Terabyte" placement="right"> 
                                      <el-image class="data_icon" :src="excIcon"></el-image>
                                 </el-tooltip>
-                                <!-- <el-image class="data_icon" :src="excIcon"></el-image> -->
                             </el-row>
                         </el-col>
                     </div>
