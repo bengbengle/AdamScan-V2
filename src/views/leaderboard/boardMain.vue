@@ -1,6 +1,6 @@
 <template>
     <div class="board_data_area">
-        <div style="width: 90%;padding: 2% 5%">
+        <!-- <div style="width: 90%;padding: 2% 5%"> -->
             <el-tabs class="text_css" v-model="activeName" @tab-click="handleClick">
                 <el-tab-pane label="Computing power ranking" name="cpr">
                     <PageList sort='power' ref="pageListData"></PageList>
@@ -8,11 +8,8 @@
                 <el-tab-pane label="Child number ranking" name="number">
                     <PageList sort='node' ref="pageListData"></PageList>
                 </el-tab-pane>
-<!--                <el-tab-pane label="Child node ranking" name="cnr">-->
-<!--                    <CnrData></CnrData>-->
-<!--                </el-tab-pane>-->
             </el-tabs>
-        </div>
+        <!-- </div> -->
 
     </div>
 

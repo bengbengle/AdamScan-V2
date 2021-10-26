@@ -11,8 +11,8 @@
             </el-table-column>
             <el-table-column min-width="100" prop="poolName" label="Label" show-overflow-tooltip> </el-table-column>
             <el-table-column v-if="show" min-width="200" prop="nodeNum" label="Number of child nodes"> </el-table-column>
-            <el-table-column v-if="!show" min-width="200" prop="nodeNum" label="Child nodes"> </el-table-column>
-            <el-table-column v-if="!show" min-width="100" prop="rate" label="Percentage"> </el-table-column>
+            <el-table-column v-if="!show" min-width="100" prop="nodeNum" label="Child nodes"> </el-table-column>
+            <el-table-column v-if="!show" min-width="150" prop="rate" label="Percentage"> </el-table-column>
             <el-table-column v-if="show" min-width="200" prop="totalPower" label="Current computing power"> </el-table-column>
             <el-table-column v-if="!show" min-width="200" prop="totalPower" label="Computing power"> </el-table-column>
             <el-table-column min-width="200" prop="rewardNum" label="Coin production(ADAM)" :formatter="formatterPre"> </el-table-column>
@@ -121,54 +121,10 @@
                     }
                 )
             },
-            // getProfitCount(param,item){
-            //     getProfitCount(param).then(
-            //         res => {
-            //             if(res != undefined && res.content != 0 && res.errorCode === 1000){
-            //                 item.totalAdam = res.content.count
-            //             }else{
-            //                 item.totalAdam = "-"
-            //             }
-            //             //计算算力比
-            //             if(this.totalPledge != 0){
-            //                 item.percentage = item.total_power / this.totalPledge
-            //             }else{
-            //                 item.percentage = "-"
-            //             }
-            //             this.allData.push(item)
-            //         }
-            //     ).catch(
-            //         () => {
-            //             item.totalAdam = "-"
-            //             this.getProfitCount(param,item)
-            //         }
-            //     )
-            // },
-            // getNodeCount(param,item){
-            //     getNodeCount(param).then(
-            //         res => {
-            //             if(res != undefined && res.errorCode === 1000){
-            //                 item.nodeNum = res.content
-            //             }else{
-            //                 item.nodeNum = "-"
-            //             }
-            //             this.getProfitCount(param,item)
-            //         }
-            //     ).catch(
-            //         () => {
-            //             item.nodeNum = "-"
-            //             this.getProfitCount(param,item)
-            //         }
-            //     )
-            // },
             // eslint-disable-next-line no-unused-vars
             formatterPre: function(row,column){
                 return this.showValue(row.rewardNum)
             },
-            // eslint-disable-next-line no-unused-vars
-            // formatterRate: function(row,column){
-            //     return this.showValue(row.rate)
-            // },
             showValue(value){
                 if(value == "-"){
                     return "-";

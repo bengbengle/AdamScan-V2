@@ -1,8 +1,6 @@
 <template>
     <div class="account_data_area">
-        <div style="width: 90%;padding: 2% 5%">
-            <PageList ref="pageListData"></PageList>
-        </div>
+        <PageList ref="pageListData"></PageList>
     </div>
 </template>
 

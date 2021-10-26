@@ -1,7 +1,7 @@
 <template>
     <div class="background_res">
         <div class="little_div total_data_area" style="height: 300px">
-            <el-image class="level_second" :src="circleUrl"></el-image>
+            <el-image class="level_second" :src="circleUrl" ></el-image>
             <div class="level_first total_data">
                 <div class="content_address">
                     <span>{{address}}</span>
@@ -595,7 +595,7 @@
 </script>
 
 <style scoped>
-    >>>.level_second .el-image__inner{
+    .level_second .el-image__inner{
         width: 80px;
     }
 </style>

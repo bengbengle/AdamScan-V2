@@ -29,6 +29,9 @@
 .board_data_area .text_css{
     font-weight: bold;
     color: black;
+    max-width: 1280px;
+    margin: 0px auto;
+    margin-top: 40px;
 }
 .home_title_area{
     line-height: 50px;

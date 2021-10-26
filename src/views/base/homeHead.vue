@@ -2,11 +2,11 @@
     <div style="width: auto">
         <el-header style="padding: 0px 0px;">
             <!-- 由于背景图层会变化，因此我们需要增加固定背景图片 -->
-            <div style="position: absolute;left: 0px;right: 0px;">
+            <!-- <div style="position: absolute;left: 0px;right: 0px;">
                 <el-image :src="backgroundImg"
                           :style="backgroundStyle">
                 </el-image>
-            </div>
+            </div> -->
             <div class="home_head">
                 <el-row class="head_size">
                     <div class="logo_div">
@@ -213,7 +213,6 @@
                             this.title = "Account"
                         }
                         // console.info("33")
-                        // this.backgroundImg = require("@/img/other_background.png");
                         this.backgroundImg = this.otherBackground;
                         this.activeStyle = "margin: 79px 0px 28px 0px";
                         this.backgroundStyle = "height: 314px;width: 100%"

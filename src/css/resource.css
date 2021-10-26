@@ -179,6 +179,9 @@
     position: relative;
     z-index: 2
 }
+.level_second img {
+    width: 60px;
+}
 /*大部分外层div的边距大小设定*/
 .out_div{
     width: 73%;

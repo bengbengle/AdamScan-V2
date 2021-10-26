@@ -92,54 +92,10 @@
 
                 })
             },
-            // getProfitCount(param,item){
-            //     getMinerProfitCount(param).then(
-            //         res => {
-            //             if(res != undefined && res.content != 0 && res.errorCode === 1000){
-            //                 item.totalAdam = res.content.count
-            //             }else{
-            //                 item.totalAdam = "-"
-            //             }
-            //             //计算算力比
-            //             if(this.totalPledge != 0){
-            //                 item.percentage = item.total_power / this.totalPledge
-            //             }else{
-            //                 item.percentage = "-"
-            //             }
-            //             this.allData.push(item)
-            //         }
-            //     ).catch(
-            //         () => {
-            //             item.totalAdam = "-"
-            //             this.getProfitCount(param,item)
-            //         }
-            //     )
-            // },
-            // getNodeCount(param,item){
-            //     getMinerNodeCount(param).then(
-            //         res => {
-            //             if(res != undefined && res.content != null && res.errorCode === 1000){
-            //                 item.nodeNum = res.content
-            //             }else{
-            //                 item.nodeNum = "-"
-            //             }
-            //             this.getProfitCount(param,item)
-            //         }
-            //     ).catch(
-            //         () => {
-            //             item.nodeNum = "-"
-            //             this.getProfitCount(param,item)
-            //         }
-            //     )
-            // },
             // eslint-disable-next-line no-unused-vars
             formatterPre: function(row,column){
                 return this.showValue(row.profit)
             },
-            // eslint-disable-next-line no-unused-vars
-            // formatterRate: function(row,column){
-            //     return this.showValue(row.percentage)
-            // },
             showValue(value){
                 if(value == "-"){
                     return "-";

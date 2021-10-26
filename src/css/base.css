@@ -137,7 +137,6 @@ body{
     border-radius: 35px;
     background: transparent;
 }
-<!-- home内容实现 -->
 .homeCon{
     min-height: 436px;
 }
@@ -189,6 +188,9 @@ body{
     font-weight: bold;
 
 }
+.headerbg {
+    background: url(../img/home_background.png);
+}
 .el-select .el-icon-arrow-up:before {
     content: "\e790";
 }
@@ -197,11 +199,13 @@ body{
     width: 100%;
 }
 .data_area{
-    width: 73%;
+    /* width: 73%;
     margin: 0px 13.5%;
     float: left;
     background: transparent;
-    min-width: 1280px;
+    min-width: 1280px; */
+    max-width: 1280px;
+    margin: 0px auto;
 }
 .data_area:first-child.el-row{
     text-align: center;
@@ -282,11 +286,10 @@ body{
     box-shadow: 0px 0px 0px 0px;
 }
 
-<!-- 头部实现 -->
-
 .home_head {
     width: 100%;
     height: 436px;
+    background: url(../img/other_background.png);
 }
 .head_size{
     text-align: left;
