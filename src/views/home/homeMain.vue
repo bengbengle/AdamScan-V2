@@ -1,6 +1,5 @@
 <template>
     <div>
-        <!-- 统计数据区域 -->
         <div class="synthetic_data">
             <div class="data_area">
                 <el-row class="first">
@@ -11,7 +10,9 @@
                             </el-row>
                             <el-row class="second_text">
                                 ADAM price
-                                <el-image class="data_icon" :src="excIcon"></el-image>
+                                <el-tooltip class="item" effect="dark" content="Real-time price" placement="right"> 
+                                     <el-image class="data_icon" :src="excIcon"></el-image>
+                                </el-tooltip>
                             </el-row>
                         </div>
                     </el-col>
@@ -22,7 +23,10 @@
                             </el-row>
                             <el-row class="second_text">
                                 Total network power
-                                <el-image class="data_icon" :src="excIcon"></el-image>
+                                <el-tooltip class="item" effect="dark" content="Real-time calculation of the network power" placement="right"> 
+                                     <el-image class="data_icon" :src="excIcon"></el-image>
+                                </el-tooltip>
+                                <!-- <el-image class="data_icon" :src="excIcon"></el-image> -->
                             </el-row>
                         </div>
                     </el-col>
@@ -32,8 +36,11 @@
                                 {{simpData.totalNode}}
                             </el-row>
                             <el-row class="second_text">
-                                Number of active nodes
-                                <el-image class="data_icon" :src="excIcon"></el-image>
+                                Wallet address of network
+                                 <el-tooltip class="item" effect="dark" content="Wallet address of network" placement="right"> 
+                                     <el-image class="data_icon" :src="excIcon"></el-image>
+                                </el-tooltip>
+                                <!-- <el-image class="data_icon" :src="excIcon"></el-image> -->
                             </el-row>
                         </div>
                     </el-col>
@@ -46,7 +53,10 @@
                             </el-row>
                             <el-row class="second_text">
                                 24H output
-                                <el-image class="data_icon" :src="excIcon"></el-image>
+                                <el-tooltip class="item" effect="dark" content="Released ADAM of last 24 hours of network" placement="right"> 
+                                     <el-image class="data_icon" :src="excIcon"></el-image>
+                                </el-tooltip>
+                                <!-- <el-image class="data_icon" :src="excIcon"></el-image> -->
                             </el-row>
                         </el-col>
                         <el-col :span="8">
@@ -55,7 +65,10 @@
                             </el-row>
                             <el-row class="second_text">
                                 Internet pledge amount
-                                <el-image class="data_icon" :src="excIcon"></el-image>
+                                <el-tooltip class="item" effect="dark" content="Total pledge amount of network" placement="right"> 
+                                     <el-image class="data_icon" :src="excIcon"></el-image>
+                                </el-tooltip>
+                                <!-- <el-image class="data_icon" :src="excIcon"></el-image> -->
                             </el-row>
 
                         </el-col>
@@ -65,8 +78,11 @@
                                 30 ADAM/TIB
                             </el-row>
                             <el-row class="second_text">
-                                Number of active nodes
-                                <el-image class="data_icon" :src="excIcon"></el-image>
+                                The number of ADAM pledged per T 
+                                <el-tooltip class="item" effect="dark" content="The number of ADAM pledged per Terabyte" placement="right"> 
+                                     <el-image class="data_icon" :src="excIcon"></el-image>
+                                </el-tooltip>
+                                <!-- <el-image class="data_icon" :src="excIcon"></el-image> -->
                             </el-row>
                         </el-col>
                     </div>

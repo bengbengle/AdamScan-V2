@@ -24,15 +24,24 @@
                     <el-row class="word_small">
                         <el-col :span="8">
                             {{pointData.one}}
-                            <el-image class="data_icon" :src="excIcon"></el-image>
+                            <el-tooltip class="item" effect="dark" content="Machine quantity of node" placement="right"> 
+                                <el-image class="data_icon" :src="excIcon"></el-image>
+                            </el-tooltip>
+                            <!-- <el-image class="data_icon" :src="excIcon"></el-image> -->
                         </el-col>
                         <el-col :span="8">
                             {{pointData.two}}
-                            <el-image class="data_icon" :src="excIcon"></el-image>
+                            <!-- <el-image class="data_icon" :src="excIcon"></el-image> -->
+                            <el-tooltip class="item" effect="dark" content="Computing power of node" placement="right"> 
+                                <el-image class="data_icon" :src="excIcon"></el-image>
+                            </el-tooltip>
                         </el-col>
                         <el-col :span="8">
                             {{pointData.three}}
-                            <el-image class="data_icon" :src="excIcon"></el-image>
+                             <el-tooltip class="item" effect="dark" content="Rank" placement="right"> 
+                                <el-image class="data_icon" :src="excIcon"></el-image>
+                            </el-tooltip>
+                            <!-- <el-image class="data_icon" :src="excIcon"></el-image> -->
                         </el-col>
 <!--                        <el-col :span="8">-->
 <!--                            {{pointData.four}}-->
@@ -54,7 +63,12 @@
                     <div class="pie_bottom_div" v-for="(item) of pieChartLeftList" :key="item.id" :style="item.rate">
                         <div class="pie_bottom_data" :style="item.color"></div>
                         <div class="pie_bottom_title">{{item.name}}</div>
-                        <div style="float: left"><el-image class="data_icon" :src="excIcon"></el-image></div>
+                        
+                        <!-- <div style="float: left"><el-image class="data_icon" :src="excIcon"></el-image></div> -->
+                        <el-tooltip class="item" effect="dark" :content="item.desc" placement="right"> 
+                            <el-image class="data_icon" :src="excIcon"></el-image>
+                        </el-tooltip>
+                        
                         <div style="float: right;">{{showValue(item.value)}} ADAM</div>
                     </div>
                 </div>
@@ -70,7 +84,9 @@
                     <div class="pie_bottom_div" v-for="(item) of pieChartRightListData" :key="item.id" :style="item.rate">
                         <div class="pie_bottom_data" :style="item.color"></div>
                         <div class="pie_bottom_title">{{item.name}}</div>
-                        <div style="float: left"><el-image class="data_icon" :src="excIcon"></el-image></div>
+                        <el-tooltip class="item" effect="dark" :content="item.desc" placement="right"> 
+                            <el-image class="data_icon" :src="excIcon"></el-image>
+                        </el-tooltip>
                         <div style="float: right;">{{item.value}}</div>
                     </div>
                 </div>
@@ -239,9 +255,9 @@
                 pieChartLeftList:[],
                 pieChartRightList:[],
                 pieChartRightListData:[
-                    { id: 0, color: 'background: #001594', name: 'Total power', value: 0, rate: 'top: 79%',},
-                    { id: 1, color: 'background: #FF6B22', name: 'Power rate', value: "0%", rate: 'top: 86%',},
-                    { id: 2, color: 'background: #FF6B22', name: 'Power feed', value: 0, rate: 'top: 93%',},
+                    { id: 0, color: 'background: #001594', name: 'Total power', value: 0, rate: 'top: 79%', desc: 'Released ADAM amount'},
+                    { id: 1, color: 'background: #FF6B22', name: 'Power rate', value: "0%", rate: 'top: 86%',desc: ''},
+                    { id: 2, color: 'background: #FF6B22', name: 'Power feed', value: 0, rate: 'top: 93%',desc: ''},
                 ],
                 seriesData: [],
                 headerStyle: {
@@ -320,7 +336,8 @@
                 }
                 getAccDetailInfo(param).then(
                     res => {
-                        var data = res.data[0];
+                        var data = res && res.data.length && res.data[0] || null;
+                        if(!data) return
                         // console.info("获取参数：" + JSON.stringify(res))
                         if(res != undefined && res.code == 200){
                             this.poolName = data && data.poolName || '-'
@@ -497,29 +514,80 @@
                 // console.info("查看数据:" + JSON.stringify(params))
                 //模拟拼接不同数据
                 this.pieChartLeftList = [
-                    { id: 0, color: 'background: #001594', name: 'Available Balance',
-                        value: params==undefined?0:this.showValue((params.release == undefined || params.release == null)?0:params.release), rate: 'top: 79%',},
-                    { id: 1, color: 'background: #FF6B22', name: 'Pledge amount',
-                        value: params==undefined?0:this.showValue((params.adam == undefined || params.adam == null)?0:params.adam), rate: 'top: 86%',},
-                    { id: 2, color: 'background: #88CD1B', name: 'Currency lock-up',
-                        value: params==undefined?0:this.showValue((params.lock == undefined || params.lock == null)?0:params.lock), rate: 'top: 93%',}
+                    { 
+                        id: 0, 
+                        color: 'background: #001594', 
+                        name: 'Available Balance',
+                        value: params==undefined ? 0 : this.showValue((params.release == undefined || params.release == null)?0:params.release), 
+                        rate: 'top: 79%',
+                        desc: 'Released ADAM amount'
+                    },
+                    {   
+                        id: 1, 
+                        color: 'background: #FF6B22', 
+                        name: 'Pledge amount',
+                        value: params == undefined ? 0 : this.showValue((params.adam == undefined || params.adam == null)?0:params.adam), 
+                        rate: 'top: 86%',
+                        desc: 'Total pledge amount of node'
+                    },
+                    {   
+                        id: 2, 
+                        color: 'background: #88CD1B', 
+                        name: 'Currency lock-up',
+                        value: params==undefined ? 0 : this.showValue((params.lock == undefined || params.lock == null) ? 0 : params.lock), 
+                        rate: 'top: 93%',
+                        desc: 'Locked-up ADAM amount'
+                    }
                 ]
                 this.pieChartRightList = [
-                    { id: 0, color: 'background: #001594', name: 'Current power',
-                        value: params==undefined?0:this.showValue((params.power == undefined || params.power == null)?0:params.power), rate: 'top: 79%',},
-                    { id: 1, color: 'background: #FF6B22', name: 'Total power',
-                        value: params==undefined?0:this.showValue((params.totalPower == undefined || params.totalPower == null)?0:params.totalPower), rate: 'top: 86%',},
+                    { 
+                        id: 0, 
+                        color: 'background: #001594', 
+                        name: 'Current power',
+                        value: params==undefined?0:this.showValue((params.power == undefined || params.power == null)?0:params.power),
+                        rate: 'top: 79%',
+                        desc: 'Locked-up ADAM amount'
+                    },
+                    {   
+                        id: 1, 
+                        color: 'background: #FF6B22', 
+                        name: 'Total power',
+                        value: params==undefined ? 0:this.showValue((params.totalPower == undefined || params.totalPower == null) ? 0:params.totalPower), 
+                        rate: 'top: 86%',
+                        desc: 'Locked-up ADAM amount'
+                    },
                 ]
                 //由于右边饼图与下方数据不相同，因此需增加参数显示
                 this.seriesData =
-                    [{value: 0, name: 'Available Balance'},
+                    [
+                        {value: 0, name: 'Available Balance'},
                         {value: 0, name: 'Pledge amount'},
                         {value: 0, name: 'Currency lock-up'},]
                 this.pieChartRightListData = [
-                    { id: 0, color: 'background: #001594', name: 'Total power', value: params==undefined?0:this.showValue(params.totalPower), rate: 'top: 79%',},
-                    // { id: 1, color: 'background: #FF6B22', name: 'Power rate', value: params==undefined?"0%":this.showValue(params.power/params.totalPower) + "%", rate: 'top: 86%',},
-                    { id: 1, color: 'background: #FF6B22', name: 'Power rate', value: params==undefined?"0%":params.rate + "%", rate: 'top: 86%',},
-                    { id: 2, color: 'background: #FF6B22', name: 'Power feed', value: params==undefined?0:params.proCount, rate: 'top: 93%',},
+                    { 
+                        id: 0, 
+                        color: 'background: #001594', 
+                        name: 'Total power', 
+                        value: params==undefined?0:this.showValue(params.totalPower), 
+                        rate: 'top: 79%', 
+                        desc: 'Total power of network'
+                    },
+                    { 
+                        id: 1, 
+                        color: 'background: #FF6B22', 
+                        name: 'Power rate', 
+                        value: params==undefined?"0%":params.rate + "%", 
+                        rate: 'top: 86%', 
+                        desc: 'Node power/ Network power'
+                    },
+                    {   
+                        id: 2,
+                        color: 'background: #FF6B22',
+                        name: 'Power feed', 
+                        value: params==undefined?0:params.proCount, 
+                        rate: 'top: 93%', 
+                        desc: 'Total price feeds times'
+                    }
                 ]
             },
         }

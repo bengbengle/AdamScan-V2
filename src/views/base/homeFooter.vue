@@ -5,11 +5,10 @@
             <div class="footer">
                 <div class="footer_font_content left_div">
                     <el-image
-                            style="width: 69.3%;height: 64px;"
-                            :src="logoImg"
-                            :fit="fit"></el-image>
-                    <!-- font-size: 18px;font-weight: bold; -->
-                    <div style="margin-top: 20px;">
+                        class="bottomlogo"
+                        :src="logoImg"
+                        :fit="fit"></el-image>
+                    <div class="footerdesc">
                         ADAMScan is a blockchain browser and data service analysis platform developed with the support of ADAM LABS.
                         ADAMoracle provides users with ADAMoracle data and node information to check the latest running status of nodes in a timely manner
                     </div>
@@ -20,90 +19,22 @@
                     <el-row>
                         Community
                     </el-row>
-                    <el-row style="margin-top: 32px;">
-                        <el-col :span="8">
-                            <div style="float: left">
-                                <el-image style="width: 20px" :src="twitterIcon"></el-image>
-                            </div>
-                            <div style="float: left;margin-left: 5px;">
-                                <el-link :underline="false" href="https://twitter.com/ADAM_Oracle">Twitter</el-link>
-                            </div>
-                        </el-col>
-                        <el-col :span="8">
-                            <div style="float: left">
-                                <el-image style="width: 20px" :src="flyIcon"></el-image>
-                            </div>
-                            <div style="float: left;margin-left: 5px;">
-                                <el-link :underline="false" href="https://t.me/adamoracleEnglish">Telegram English</el-link>
-                            </div>
-                        </el-col>
-                        <el-col :span="8">
-                            <div style="float: left">
-                                <el-image style="width: 20px" :src="flyIcon"></el-image>
-                            </div>
-                            <div style="float: left;margin-left: 5px;">
-                                <el-link :underline="false" href="https://t.me/adamoracleChinese">Telegram Chinese</el-link>
-                            </div>
-                        </el-col>
+                    <el-row >
+                         <el-image :src="footer1" @click="direcTo('https://twitter.com/ADAM_Oracle')" ></el-image>
                     </el-row>
-                    <el-row style="margin-top: 5px">
-                        <el-col :span="8">
-                            <div style="float: left">
-                                <el-image style="width: 20px" :src="mIcon"></el-image>
-                            </div>
-                            <div style="float: left;margin-left: 5px;">
-                                <el-link :underline="false" href="https://adamoracle.medium.com">Medium</el-link>
-                            </div>
-                        </el-col>
-                        <el-col :span="8">
-                            <div style="float: left">
-                                <el-image style="width: 20px" :src="playIcon"></el-image>
-                            </div>
-                            <div style="float: left;margin-left: 5px;">
-                                <el-link :underline="false" href="https://www.youtube.com/watch?v=Vi62u5p3hmU">Youtube</el-link>
-                            </div>
-                        </el-col>
+                    <el-row >
+                          <el-image :src="footer2" @click='direcTo("https://t.me/adamoracleEnglish")'></el-image>
                     </el-row>
-                    <!-- <el-row style="margin-top: 31px;">
-                        Quick Links
+                    <el-row>
+                         <el-image :src="footer3" @click="direcTo('https://t.me/adamoracleChinese')"></el-image>
                     </el-row>
-                    <el-row style="margin-top: 26px">
-                        <el-col :span="6">
-                            <div style="float: left">
-                                <el-image style="width: 20px" :src="adamIcon"></el-image>
-                            </div>
-                            <div style="float: left;margin-left: 5px;">
-                                <el-link :underline="false" href="https://www.adamoracle.io">ADAM website</el-link>
-                            </div>
-
-                        </el-col>
-                        <el-col :span="6"></el-col>
-                        <el-col :span="6"></el-col>
-                        <el-col :span="6"></el-col>
-                    </el-row> -->
+                    <el-row >
+                        <el-image :src="footer4" @click='direcTo("https://adamoracle.medium.com")'></el-image>
+                    </el-row>
+                    <el-row >
+                        <el-image :src="footer5" @click='direcTo("https://www.youtube.com/watch?v=Vi62u5p3hmU")'></el-image>
+                    </el-row>
                 </div>
-                <!-- <div class="footer_font_content right_div">
-                    <el-row>Partner</el-row>
-
-                    <el-row style="margin-top: 34px">
-                        <div style="float: left">
-                            <el-image style="width: 70px;" :src="caijingIcon"></el-image>
-                        </div>
-                        <div style="float: left;margin-left: 5px;">
-                            <el-link :underline="false" href="https://www.jinse.com/">Golden finance</el-link>
-                        </div>
-                    </el-row>
-                    <el-row style="margin-top: 24px">
-                        <div style="float: left">
-                            <el-image style="width: 70px;" :src="caijingIcon"></el-image>
-                        </div>
-                        <div style="float: left;margin-left: 5px;">
-                            <el-link :underline="false" href="https://bscscan.com/">Binance Smart Chain</el-link>
-                        </div>
-                    </el-row>
-                    <el-row style="margin-top: 24px"></el-row>
-                    <el-row style="margin-top: 24px"></el-row>
-                </div> -->
             </div>
         </div>
         <!-- 底部结束 -->
@@ -123,18 +54,30 @@
                 mIcon: require("@/img/icon/m_icon.png"),
                 caijingIcon: require("@/img/icon/caijing_icon.png"),
                 adamIcon: require("@/img/icon/adam_icon.png"),
+                footer1: require("@/img/footer/1.png"),
+                footer2: require("@/img/footer/2.png"),
+                footer3: require("@/img/footer/3.png"),
+                footer4: require("@/img/footer/4.png"),
+                footer5: require("@/img/footer/5.png"),
+                            
                 fit: 'scale-down',
                 backgroundImg: require("@/img/foot_background.png"),
             }
+        },
+        methods: {
+            direcTo(url){
+                console.log('...')
+                window.open(url, '_blank')
+            },
         }
     }
 </script>
 
 <style scoped>
-    >>>.el-link.el-link--default {
+    .el-link.el-link--default {
         color: white;
     }
-    >>>.el-link.el-link--default:hover {
+    .el-link.el-link--default:hover {
         color: #409EFF;
     }
 </style>

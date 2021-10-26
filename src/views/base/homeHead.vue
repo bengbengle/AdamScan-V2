@@ -64,8 +64,7 @@
                         </div>
                         <el-input size="large" placeholder="Please enter the content" v-model="searchValue" :class="classValue">
                             <div class="select_div" slot="prepend">
-                                <el-select class="select_button font-black" style="color: white" disabled v-model="searchType" 
-                                placeholder="Address">
+                                <el-select class="select_button font-black" style="color: white" disabled v-model="searchType" placeholder="Address">
                                     <el-option
                                             v-for="item in options"
                                             :key="item.value"
@@ -227,14 +226,8 @@
 
             },
             handleIconClick(){
-                // if(this.searchType.trim() == "" || this.searchType == undefined){
-                //     this.$message({
-                //         message: 'Select a query type',
-                //         type: 'warning'
-                //     })
-                //     return
-                // }
-                // sessionStorage.setItem("searchType",this.searchType);
+                console.log('this.searchValue', this.searchValue || !this.searchValue.trim())
+                if(!this.searchValue) return
                 sessionStorage.setItem("searchValue",this.searchValue);
                 //获取当前路由信息
                 let path = this.$route.path;
