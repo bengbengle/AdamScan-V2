@@ -19,7 +19,6 @@
         </el-table>
         <el-pagination
                 background
-                hide-on-single-page
                 style="padding-bottom: 30px;padding-right: 10px;"
                 @size-change="handleSizeChange"
                 @current-change="handleCurrentChange"
@@ -92,7 +91,6 @@
                 this.getList()
             },
             getList(address,name){
-                console.log('name', name)
                 var params = {
                     currentPage: this.currentPage.toString(),
                     pageSize: this.pageSize.toString(),
@@ -104,14 +102,16 @@
                 // this.allData = []
                 getSortList(params).then(
                     res => {
+                    console.log('res', res.data.total)
+
+                        // console.log('res:::', res)
                         if(res != undefined && res.code === 200) {
                             res.data.records&&res.data.records.forEach((m, i)=> {
                                 return m.rank = i + 1
                             })
                             this.allData = res.data.records
-                            
                             //手动计算
-                            this.total = res.total
+                            this.total = res.data.total
                         }else{
                             this.$message({
                                 message: res.message,

@@ -11,11 +11,6 @@ export const getAllPledgeInfo = (params) => {
 //查询列表
 export const getSortList = (params) => {
     return request.post('/api/getPledgeList',params).then(res => res);
-    // return request({
-    //     url: '/api/scan/getSortList',
-    //     method: 'post',
-    //     params
-    // })
 }
 //获取列表中子节点数
 export const getNodeCount = (params) => {
