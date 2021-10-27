@@ -160,7 +160,7 @@
                     </el-input>
                 </div>
             </el-row>
-            <el-row style="position:absolute;top: 108px;min-height: 880px;width: 100%">
+            <el-row style="top: 108px;min-height: 880px;width: 100%">
                 <PageList @updateTableHeight="updateTableHeight" ref="pageListData"></PageList>
             </el-row>
         </div>
