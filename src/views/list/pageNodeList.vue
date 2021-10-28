@@ -4,6 +4,8 @@
                   :header-cell-style="headerStyle"
                   :cell-style="cellStyle"
                   class="data">
+            <el-table-column min-width="50" style="text-align: center;" prop="rank" label="rank" show-overflow-tooltip>
+            </el-table-column>
             <el-table-column min-width="200" style="text-align: center;" prop="address" label="address" show-overflow-tooltip> </el-table-column>
             <el-table-column min-width="100" prop="machineCode" label="Label" show-overflow-tooltip> </el-table-column>
             <el-table-column min-width="200" prop="count" label="Number of child nodes"> </el-table-column>
@@ -27,9 +29,7 @@
 </template>
 
 <script>
-    import {
-        getMinerSortList
-    } from "@/api/home/api";
+    import { getMinerSortList } from "@/api/home/api";
 
     export default {
         name: "pageList",
@@ -53,6 +53,7 @@
                     'border':'0px',
                     'height':'80px'},
                 allData: [],
+                pAddress: ''
             }
         },
         mounted() {
@@ -66,31 +67,35 @@
                 this.$emit("updateTableHeight",this.pageSize)
             },
             handleCurrentChange: function(currentPage){
+                
                 this.currentPage = currentPage;
-                this.getList()
+                if(this.pAddress) {
+                    this.getList(this.pAddress, '')
+                } else {
+                    this.getList()
+                }
             },
-            getList(address,name){
+            async getList(address,name){
+                this.pAddress = address
                 var params = {
                     currentPage: this.currentPage.toString(),
                     pageSize: this.pageSize.toString(),
                     address: address == undefined ? "" : address,
                     c_id: name == undefined ? "" : name,
                 };
-                //由于push数据的原因，因此，每次查询前需要清空数据
+                //由于 push 数据的原因，因此，每次查询前需要清空数据
                 // this.allData = []
-                getMinerSortList(params).then(
-                    res => {
-                        if(res != undefined && res.code === 200) {
-                            this.allData = res.data.records
-                            // //手动计算
-                            this.total = res.total
-                        }else{
-                            this.total = 0
-                        }
-                    }
-                ).catch(()=>{
+                let res = await  getMinerSortList(params)
+                if(res != undefined && res.code === 200) {
+                    res.data.records && res.data.records.forEach((m, i)=> {
+                        return m.rank = i + 1
+                    })
+                    this.allData = res.data.records
 
-                })
+                    this.total = res.data.total
+                } else {
+                    this.total = 0
+                }
             },
             // eslint-disable-next-line no-unused-vars
             formatterPre: function(row,column){

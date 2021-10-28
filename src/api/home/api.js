@@ -42,7 +42,7 @@ export const getLinkGraph = (params) => {
 }
 
 //查询列表
-export const getMinerSortList = (params) => {
+export const getMinerSortList = async (params) => {
     return request.post('/api/getNodeList',params).then(res => res);
     // return request({
     //     url: '/api/scan/getSortList',

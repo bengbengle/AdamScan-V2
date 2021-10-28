@@ -153,9 +153,9 @@
                 <div class="bottom_search_squ" style="line-height: 80px">
                     <el-input v-model="input" style="font-weight: bold;font-size: 18px" placeholder="Please enter ICD search">
                         <i
-                                class="el-icon-search search_button"
-                                slot="suffix"
-                                @click="handleIconClick" circle>
+                            class="el-icon-search search_button"
+                            slot="suffix"
+                            @click="handleIconClick" circle>
                         </i>
                     </el-input>
                 </div>
@@ -283,9 +283,9 @@
             getParams(params){
                 //查询首页数据
                 if(params.searchType == "1"){
-                    this.$refs.pageListData.queryPageList(params.searchValue,"")
+                    this.$refs.pageListData.queryPageList(params.searchValue, "")
                 }else{
-                    this.$refs.pageListData.queryPageList("",params.searchValue)
+                    this.$refs.pageListData.queryPageList("", params.searchValue)
                 }
                 this.$nextTick(function () {
                     //开始更新页面数据
