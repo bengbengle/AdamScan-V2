@@ -78,6 +78,7 @@
                     }
                     //刷新对应的页面数据并跳转
                     Utils.$emit('demo',params);
+                    sessionStorage.setItem('searchValue', row.address),
                     this.$router.push('/resource');
                 }
             },

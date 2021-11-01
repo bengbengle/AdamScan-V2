@@ -4,7 +4,7 @@ IP: 47.241.183.80
 # 首页
 ### 1.全网算力相关信息
 
-* URL： /scan/getAllPledgeInfo
+* URL： /scan/getAllPledgeInfo 
 * 参数：    
 * DEMO
     - http://ip:10001/api/scan/getAllPledgeInfo

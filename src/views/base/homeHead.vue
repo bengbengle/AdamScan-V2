@@ -153,23 +153,24 @@
                 var path = keyPath;
                 this.updateStyle(path);
             },
-            setActiveClass(path){
-                if(path == "/" || path.search("home") != -1){
-                    this.isActive = 1
-                } else if(path.search("account") != -1){
-                    this.isActive = 2
-                } else if(path.search("leaderboard") != -1){
-                    this.isActive = 3
-                } else if(path.search("resource") != -1){
-                    this.isActive = 4
-                } else if(path.search("global") != -1){
-                    this.isActive = 5
-                }
-            },
+            // setActiveClass(path){
+                // console.log('path::', path)
+                // if(path == "/" || path.search("home") != -1){
+                //     this.isActive = 1
+                // } else if(path.search("account") != -1){
+                //     this.isActive = 2
+                // } else if(path.search("leaderboard") != -1){
+                //     this.isActive = 3
+                // } else if(path.search("resource") != -1){
+                //     this.isActive = 4
+                // } else if(path.search("global") != -1){
+                //     this.isActive = 5
+                // }
+            // },
             updateStyle(path){
                 //判断路径替换样式
                 let str = path.toString();
-                this.setActiveClass(str)
+                // this.setActiveClass(str)
                 this.activeIndex = str;
                 console.info("当前激活导航栏:" + this.activeIndex)
                 //清空查询
