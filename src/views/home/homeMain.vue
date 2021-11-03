@@ -22,7 +22,7 @@
                                 {{simpData.totalPower}} TIB
                             </el-row>
                             <el-row class="second_text">
-                                Total network power
+                                Network Power
                                 <el-tooltip class="item" effect="dark" content="Real-time calculation of the network power" placement="right"> 
                                      <el-image class="data_icon" :src="excIcon"></el-image>
                                 </el-tooltip>
@@ -72,7 +72,7 @@
                         </el-col>
                         <el-col :span="8">
                             <el-row style="padding-top: 50px">
-                                30 ADAM/TIB
+                                {{showValue(simpData.unitPrice)}} ADAM/TIB
                             </el-row>
                             <el-row class="second_text">
                                 The number of ADAM pledged per T
@@ -135,6 +135,7 @@
                     rate: "30",   //当前算力比
                     profit_24: "",  //24小时产出量
                     power_24: "",   //24小时新增算力
+                    unitPrice: "30"
                 },
                 adamPrice: 0,
             }
