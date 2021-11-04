@@ -143,20 +143,21 @@
         methods: {
             handleSelect(key, keyPath) {
                 // var path = keyPath;
-                this.updateStyle(keyPath);
+                // console.log('key::::', key)
+                this.updateStyle(key);
             },
             updateStyle(path){
                 // console.log('path::', path)
                 //判断路径替换样式
-                let str = path[0];
-                 console.log('path str::', str)
+                // let str = path[0];
+                 console.log('path str::', path)
                 // this.setActiveClass(str)
-                this.activeIndex = str;
+                this.activeIndex = path;
                 // console.info("当前激活导航栏:" + this.activeIndex)
                 //清空查询
                 this.searchValue = ""
 
-                switch(str) {
+                switch(path) {
                  
                     case 'home':
                         
@@ -212,7 +213,7 @@
 
                         this.headerStyle = ""
                         this.ismap = false
-                        console.log('default', str)
+                        console.log('default', path)
                         break;
                 }
                 // if( str.search("home") != -1){
