@@ -6,6 +6,7 @@ import Account from "@/api/account/router"
 import LeaderBoard from "@/api/leaderboard/router"
 import Global from "@/api/global/router"
 import Resource from "@/api/resource/router"
+import Map from "@/api/map/router"
 
 Vue.use(Router)
 
@@ -19,6 +20,7 @@ config.routes = config.routes.concat(new Account().config);
 config.routes = config.routes.concat(new LeaderBoard().config);
 config.routes = config.routes.concat(new Global().config);
 config.routes = config.routes.concat(new Resource().config);
+config.routes = config.routes.concat(new Map().config);
 
 
 export default new Router(config);

@@ -1,18 +1,10 @@
 <template>
     <div style="width: auto">
         <el-header style="padding: 0px 0px;">
-            <!-- 由于背景图层会变化，因此我们需要增加固定背景图片 -->
-            <!-- <div style="position: absolute;left: 0px;right: 0px;">
-                <el-image :src="backgroundImg"
-                          :style="backgroundStyle">
-                </el-image>
-            </div> -->
-            <div class="home_head">
+            <div class="home_head" :style="headerStyle">
                 <el-row class="head_size">
                     <div class="logo_div">
-                        <el-image
-                                class="brandArea"
-                                :src="brandImg"></el-image>
+                        <el-image class="brandArea" :src="brandImg"></el-image>
                     </div>
                     <div class="menu_style">
                         <el-menu
@@ -28,9 +20,6 @@
                             <div :class="isActive==1?'default_active':'menu_div'" style="width: 17%;">
                                 <el-menu-item index="home">Home</el-menu-item>
                             </div>
-                            <!-- <div :class="isActive==2?'default_active':'menu_div'">
-                                <el-menu-item index="account">Account</el-menu-item>
-                            </div> -->
                             <div :class="isActive==3?'default_active':'menu_div'" style="width: 23%">
                                 <el-menu-item index="leaderboard">Leaderboard</el-menu-item>
                             </div>
@@ -40,22 +29,18 @@
                             <div :class="isActive==5?'default_active':'menu_div'">
                                 <el-menu-item index="global">Distribution</el-menu-item>
                             </div>
+                             <div :class="isActive==6 ? 'default_active':'menu_div'">
+                                <el-menu-item index="map">Machine Map</el-menu-item>
+                            </div>
                         </el-menu>
                     </div>
                 </el-row>
-                <el-row>
-                    <!-- 搜索框 -->
+                <el-row :hidden="ismap">
                     <div :hidden="allHidden" class="search_area" :style="activeStyle">
                         <div :hidden="isHidden" class="user_menu_display">
                             <div class="text_data">
                                 {{title}}
                             </div>
-<!--                            <div v-if="isShowPer" class="dyn_data">-->
-<!--                                <el-image class="data_image_icon" :src="personIcon"></el-image>-->
-<!--                                <div class="data_text">-->
-<!--                                    {{userAccount}} users in total-->
-<!--                                </div>-->
-<!--                            </div>-->
                             <div v-if="isShowPri" class="dyn_data">
                                 <div class="data_text">
                                     {{annotation}}
@@ -101,16 +86,24 @@
         watch: {
             // 利用watch方法检测路由变化：
             // eslint-disable-next-line no-unused-vars
-            '$route': function (to, from) {
-                let path = location.pathname;
-                // 加载表格数据
-                this.updateStyle(path);
-            }
+            // '$route': function (to, from) {
+            //     let path = location.pathname;
+            //     // 加载表格数据
+            //     this.updateStyle(path);
+            // }
         },
         activated: function() {
+            // // this.activeIndex = this.$route.path;
+            // //初始化时，需要根据路径判断样式
+            // let path = location.pathname;
+            // //判断路径替换样式
+            // this.updateStyle(path);
+        },
+        mounted() {
             // this.activeIndex = this.$route.path;
             //初始化时，需要根据路径判断样式
-            let path = location.pathname;
+            let path = location.hash.replace('#/', '');
+            console.log('path::::::::', path, location)
             //判断路径替换样式
             this.updateStyle(path);
         },
@@ -118,7 +111,6 @@
             return {
                 classValue: "input-with-select width-big",
                 fit: 'scale-down',
-                // headImg: require("@/img/headImg.jpg"),
                 brandImg: require("@/img/logo.png"),
                 backgroundImg: require("@/img/home_background.png"),
                 personIcon: require("@/img/icon/person_icon.png"),
@@ -139,90 +131,144 @@
                 annotation: "ADAM Price",
                 selfStyle: "position:static;border: 0px;",
                 options: [
-                    // {value: '0',label: 'All Types'},
                     {value: '1',label: 'Address'},
-                    // {value: '2',label: 'Name'},
                 ],
                 homeBackground: "",
                 resourceBackground: "",
                 otherBackground: "",
+                headerStyle: "",
+                ismap: false
             }
         },
         methods: {
             handleSelect(key, keyPath) {
-                var path = keyPath;
-                this.updateStyle(path);
+                // var path = keyPath;
+                this.updateStyle(keyPath);
             },
-            // setActiveClass(path){
-                // console.log('path::', path)
-                // if(path == "/" || path.search("home") != -1){
-                //     this.isActive = 1
-                // } else if(path.search("account") != -1){
-                //     this.isActive = 2
-                // } else if(path.search("leaderboard") != -1){
-                //     this.isActive = 3
-                // } else if(path.search("resource") != -1){
-                //     this.isActive = 4
-                // } else if(path.search("global") != -1){
-                //     this.isActive = 5
-                // }
-            // },
             updateStyle(path){
+                // console.log('path::', path)
                 //判断路径替换样式
-                let str = path.toString();
+                let str = path[0];
+                 console.log('path str::', str)
                 // this.setActiveClass(str)
                 this.activeIndex = str;
-                console.info("当前激活导航栏:" + this.activeIndex)
+                // console.info("当前激活导航栏:" + this.activeIndex)
                 //清空查询
                 this.searchValue = ""
-                if(path == "/" || str.search("home") != -1){
-                    this.classValue = "input-with-select width-big";
-                    this.isHidden = true;
-                    this.allHidden = false;
-                    // this.backgroundImg = require("@/img/home_background.png");
-                    this.backgroundImg = this.homeBackground;
-                    this.activeStyle = "margin: 70px 0px 112px 0px";
-                    this.backgroundStyle = "height: 784px;width: 100%"
-                    // this.isShowPer = false
-                    this.isShowPri = false
-                }else if(str.search("global") != -1) {
-                    this.allHidden = true;
-                    // this.backgroundImg = require("@/img/resource_background.png");
-                    this.backgroundImg = this.resourceBackground;
-                    this.activeStyle = "margin: 79px 0px 28px 0px";
-                    this.backgroundStyle = "height: 90px;width: 100%"
-                    // this.isShowPer = false
-                    this.isShowPri = false
-                }else{
-                    this.title = "Leaderboard";
-                    this.classValue = "input-with-select width-small";
-                    this.isHidden = false;
-                    this.allHidden = false;
-                    // this.isShowPer = false
-                    this.isShowPri = false
-                    if(str.search("resource") != -1){
-                        // this.backgroundImg = require("@/img/resource_background.png");
-                        this.backgroundImg = this.resourceBackground;
-                        this.activeStyle = "margin: 79px 0px 135px 0px";
-                        this.backgroundStyle = "height: 793px;width: 100%"
+
+                switch(str) {
+                 
+                    case 'home':
+                        
+                        this.classValue = "input-with-select width-big";
+                        this.isHidden = true;
+                        this.allHidden = false;
+                        // this.backgroundImg = require("@/img/home_background.png");
+                        this.backgroundImg = this.homeBackground;
+                        this.activeStyle = "margin: 70px 0px 112px 0px";
+                        this.backgroundStyle = "height: 784px;width: 100%"
                         // this.isShowPer = false
-                        this.isShowPri = true
-                        //查询当前价格
-                        this.getAdamPrice()
-                    }else{
-                        if(str.search("account") != -1){
-                            this.title = "Account"
-                        }
-                        // console.info("33")
+                        this.isShowPri = false
+
+                        this.headerStyle = ""
+                        this.ismap = false
+                        
+                        break;
+                    case 'map':
+                        this.ismap = true
+                        this.headerStyle = "height: 75px; "
+                        
+                        console.log('map')
+                        break;
+                    case 'account':
                         this.backgroundImg = this.otherBackground;
                         this.activeStyle = "margin: 79px 0px 28px 0px";
                         this.backgroundStyle = "height: 314px;width: 100%"
                         // this.isShowPer = false
                         this.isShowPri = false
-                        // if(str.search("account") != -1){
-                        // }
-                    }
+
+                        this.headerStyle = ""
+                        this.ismap = false 
+                        break;
+                    case 'leaderboard':
+                        this.title = "Leaderboard";
+                        this.classValue = "input-with-select width-small";
+                        this.isHidden = false;
+                        this.allHidden = false;
+                        // this.isShowPer = false
+                        this.isShowPri = false
+                         console.log('leaderboard')
+                        break;
+                    default:
+                        this.classValue = "input-with-select width-big";
+                        this.isHidden = true;
+                        this.allHidden = false;
+                        // this.backgroundImg = require("@/img/home_background.png");
+                        this.backgroundImg = this.homeBackground;
+                        this.activeStyle = "margin: 70px 0px 112px 0px";
+                        this.backgroundStyle = "height: 784px;width: 100%"
+                        // this.isShowPer = false
+                        this.isShowPri = false
+
+                        this.headerStyle = ""
+                        this.ismap = false
+                        console.log('default', str)
+                        break;
                 }
+                // if( str.search("home") != -1){
+                //     // this.classValue = "input-with-select width-big";
+                //     // this.isHidden = true;
+                //     // this.allHidden = false;
+                //     // // this.backgroundImg = require("@/img/home_background.png");
+                //     // this.backgroundImg = this.homeBackground;
+                //     // this.activeStyle = "margin: 70px 0px 112px 0px";
+                //     // this.backgroundStyle = "height: 784px;width: 100%"
+                //     // // this.isShowPer = false
+                //     // this.isShowPri = false
+
+                //     // this.headerStyle = ""
+                //     // this.ismap = false
+                // } else if(str.search("map") != -1) {
+                    
+                //     // this.ismap = true
+                //     // this.headerStyle = "height: 75px; "
+                    
+                // } else {
+                //     // this.title = "Leaderboard";
+                //     // this.classValue = "input-with-select width-small";
+                //     // this.isHidden = false;
+                //     // this.allHidden = false;
+                //     // // this.isShowPer = false
+                //     // this.isShowPri = false
+                //     // if(str.search("resource") != -1){
+                //     //     // this.backgroundImg = require("@/img/resource_background.png");
+                //     //     this.backgroundImg = this.resourceBackground;
+                //     //     this.activeStyle = "margin: 79px 0px 135px 0px";
+                //     //     this.backgroundStyle = "height: 793px;width: 100%"
+                //     //     // this.isShowPer = false
+                //     //     this.isShowPri = true
+                //     //     //查询当前价格
+                //     //     this.getAdamPrice()
+
+                //     //     this.headerStyle = ""
+                //     //     this.ismap = false
+                //     } else {
+                //         if(str.search("account") != -1){
+                //             this.title = "Account"
+                //         }
+                //         // console.info("33")
+                //         this.backgroundImg = this.otherBackground;
+                //         this.activeStyle = "margin: 79px 0px 28px 0px";
+                //         this.backgroundStyle = "height: 314px;width: 100%"
+                //         // this.isShowPer = false
+                //         this.isShowPri = false
+
+                //         this.headerStyle = ""
+                //         this.ismap = false
+                //         // if(str.search("account") != -1){
+                //         // }
+                //     }
+                // }
 
             },
             handleIconClick(){

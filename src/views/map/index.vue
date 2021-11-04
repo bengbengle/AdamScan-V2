@@ -1,0 +1,28 @@
+<template>
+    <div style='min-height: 500px;'>
+        <iframe style="
+            border: navajowhite;
+            width: 100vw;
+            height: 100vh;
+        " src='https://testnet.map.adambox.io'></iframe>
+    </div>
+</template>
+<script defer="true">
+  export default {
+        name: "map",
+        components: {
+        },
+        mounted() {
+        },
+        data() {
+            return {}
+        },
+        methods: {}
+    }
+</script>
+
+<style scoped>
+    .level_second .el-image__inner{
+        width: 80px;
+    }
+</style>

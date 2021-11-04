@@ -65,7 +65,7 @@
         mounted() {
             //获取全网总算力
             this.getList()
-            console.log('props', this.sort)
+            // console.log('props', this.sort)
         },
         props: ['sort'],
         methods: {
