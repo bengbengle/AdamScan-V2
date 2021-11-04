@@ -141,8 +141,7 @@
             }
         },
         methods: {
-            handleSelect(key, keyPath) {
-                // var path = keyPath;
+            handleSelect(key) {
                 // console.log('key::::', key)
                 this.updateStyle(key);
             },
