@@ -4,7 +4,7 @@
             border: navajowhite;
             width: 100vw;
             height: 100vh;
-        " src='https://testnet.map.adambox.io'></iframe>
+        " src='https://testnet.map.adambox.io?r=1'></iframe>
     </div>
 </template>
 <script defer="true">
