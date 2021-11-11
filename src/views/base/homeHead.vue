@@ -1,13 +1,20 @@
 <template scoped>
   <div>
     <el-header style="padding: 0px; height: auto">
-      <div class="home_head" :style="headerStyle">
-        <el-row class="head_size" style="display: flex; padding: 20px 0px">
-          <div class="logo_content">
-            <img class="center_logo" :src="brandImg" style="" />
-          </div>
-          <div class="btn_menu" style="flex: 0 0 60px" @click="handleMenuClick">
-            <img class="" :src="menuImg" style="" />
+      <div class="home_head">
+        <el-row
+          class="head_size"
+          style="
+            display: flex;
+            padding: 20px 0px;
+            align-items: center;
+            max-height: 80px;
+          "
+        >
+          <img class="center_logo" :src="brandImg" style="" />
+          <div class="logo_content"></div>
+          <div class="btn_menu" style="width: 40px" @click="handleMenuClick">
+            <img class="btn_menu_icon" :src="menuImg" style="" />
           </div>
         </el-row>
         <el-row class="head_size" style="display: none">
@@ -89,7 +96,7 @@
     <mt-popup v-model="popupVisible" position="right">
       <el-card class="box-card">
         <div
-          v-for="o in ['Home', 'Leaderboard', 'Resource', 'Map']"
+          v-for="o in ['Home', 'Leaderboard', 'Map']"
           :key="o"
           class="text item"
           @click="handleMenuItemClick"
@@ -181,7 +188,7 @@ export default {
           break;
         case "map":
           this.ismap = true;
-          this.headerStyle = "height: 75px; ";
+          //   this.headerStyle = "height: 75px; ";
 
           console.log("map");
           break;
@@ -302,6 +309,7 @@ export default {
       this.popupVisible = !this.popupVisible;
     },
     handleMenuItemClick(e) {
+        this.popupVisible = false;
       console.log(e.target.innerHTML);
       let path_name = e.target.innerHTML.toLowerCase().trim();
       console.log(path_name);
@@ -354,8 +362,10 @@ export default {
   flex: 1;
 }
 .center_logo {
-  width: 260px;
-  margin: 0px calc(50% - 100px);
+  width: 46%;
+  margin-left: 28%;
+  max-height: 80px;
+  object-fit: contain;
 }
 
 .text {
@@ -377,5 +387,9 @@ export default {
   box-shadow: none;
   border: none;
   font-weight: bold;
+}
+.btn_menu_icon {
+  width: 40px;
+  height: 40px;
 }
 </style>

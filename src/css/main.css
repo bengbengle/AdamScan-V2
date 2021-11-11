@@ -61,9 +61,9 @@
     padding-right: 10px;
 }
 .day_button button{
-    width: 95px;
-    height: 46px;
-    border-radius: 20px;
+    /* width: 95px; */
+    /* height: 46px; */
+    border-radius: 0.8rem;
     border-color: #001594;
     color: #001594;
 }

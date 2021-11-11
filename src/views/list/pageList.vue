@@ -230,7 +230,7 @@ export default {
   color: #999999;
 }
 .adam_filed_value {
-  font-size: 26px;
+  font-size: 18px;
   font-family: Alibaba PuHuiTi;
   font-weight: 500;
   color: #000000;
