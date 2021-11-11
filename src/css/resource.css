@@ -3,6 +3,7 @@
     min-height: 1200px;
     background: transparent;
     position: relative;
+    margin-top: -300px;
 }
 .total_data_area{
     /*由于固定位置，所以需要固定高度*/
@@ -14,11 +15,13 @@
 }
 
 .total_data{
-    width: 100%;
+    /* width: 100%; */
     min-height: 300px;
     background: white;
-    border-radius: 40px;
-    top: -40px;
+    border-radius: 20px;
+    margin-top: -300px;
+    box-shadow: 8px 8px 1px #93939317;
+    
 }
 .total_data .line_space{
     text-align: center;
@@ -39,11 +42,25 @@
 .data_icon{
     width: 18px;
     height: 18px;
-    margin-left: 5px;
+    position: relative;
+}
+.first_data .data_icon{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    margin-top: 3px;
+    margin-left: calc(15.5% - 30px);
+}
+.second_area .data_icon{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    margin-top: 3px;
+    margin-left: calc(15.5% - 30px);
 }
 
 .content_address{
-    padding: 45px 0px 10px 0px;
+    padding: 10px;
     text-align: center;
     font-size: 16px;
     font-weight: bold;
@@ -63,11 +80,10 @@
 }
 /*底部数据区域*/
 .all_data_area_resource{
-    margin: 57px 0px 96px 0px;
+    margin-top: 30px;
     width: 100%;
-    border-radius: 40px;
-    min-height: 528px;
-    background: white;
+    border-radius: 20px;
+    background: #f6f6f6;
     position: relative;
 }
 .all_data_area_resource .data{
@@ -83,19 +99,19 @@
     text-align: left;
 }
 .head_area_two{
-    float: left;
-    line-height: 50px;
-    position: absolute;
-    top: 23px;
-    left: 17px;
-    width: 20%;
-    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 }
 /*饼图部分*/
 .charts_show_div{
-    width: 90%;
-    min-height: 500px;
-    margin: 0% 41px
+    min-height: 400px;
+    padding: 20px 10px;
+    background: white;
+    border-radius: 20px;
+    margin: 20px 0px;
+    box-shadow: 8px 8px 1px #93939317;
 }
 /*饼图下方数据列表*/
 .pie_bottom_div{
@@ -119,10 +135,10 @@
     float: left;
 }
 .div_area{
-    width: 100%;
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 }
 .title_text{
     line-height: 50px;
@@ -130,14 +146,17 @@
     font-weight: bold
 }
 .div_title{
-    float: left;
-    width: 31.5%;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 280px;
 }
 /*饼图区域外侧div*/
 .pie_charts_out{
     width: 100%;
     min-height: 600px;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 /*条形图外侧div*/
 .bar_charts_out{
@@ -147,11 +166,11 @@
 }
 /*饼图/条形图区域*/
 .charts_area{
-    width: 49%;
-    min-height: 650px;
+    width: 100%;
+    /* min-height: 650px; */
     background: white;
-    border-radius: 40px;
-    float: left;
+    border-radius: 20px;
+    /* float: left; */
     position: relative;
 }
 .pie_left{
@@ -164,7 +183,7 @@
     margin: 0% 1% 80px 0%;
 }
 .bar_right{
-    margin: 0% 0% 80px 1%;
+    margin: 10px;
 }
 /*物块叠加显示级别 英文从低到高*/
 .level_first{
@@ -175,18 +194,14 @@
     width: 100%;
     height: 80px;
     text-align: center;
-    /*margin: 0px 47%;*/
     position: relative;
-    z-index: 2
+    /* z-index: 2; */
+    margin-top: -25px;
 }
 .level_second img {
     width: 60px;
 }
-/*大部分外层div的边距大小设定*/
-.out_div{
-    width: 73%;
-    margin: 20px 13.5% 48px 13.5%;
-}
+
 /*搜索框下方div*/
 .little_div{
     top: 0px;
@@ -226,14 +241,14 @@
 
 /*天数选择按钮区域*/
 .resource_day_button{
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    width: 68.5%;
-    float: left;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
 }
 .resource_button_div{
-    width: 33%;
+    width: 90px;
     float: left
 }
 .resource_button_div button{
@@ -251,4 +266,13 @@
 .resource_day_button button:focus{
     color: white;
     background: #001594;
+}
+
+
+
+#barChartLeft {
+    height:550px;width:100%;margin-top: 80px;background-color: transparent;
+}
+#barChartRight {
+    height:550px;width:100%;margin-top: 80px;background-color: transparent;
 }

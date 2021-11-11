@@ -6,10 +6,10 @@
     width: 100%;
 }
 .graph_ranking_area .top{
-    margin: 4.5% 0vh 0vh 3.8%;
+    /* margin: 4.5% 0vh 0vh 3.8%;
     float: left;
     width: 95.5%;
-    height: 50px;
+    height: 50px; */
 }
 /*account数据区域*/
 .account_data_area{
@@ -22,20 +22,23 @@
 }
 /*board数据区域*/
 .board_data_area{
+    margin-top: -300px;
     width: 100%;
     min-height: 600px;
     background: white;
+    border-radius: 20px;
 }
 .board_data_area .text_css{
     font-weight: bold;
     color: black;
     max-width: 1280px;
     margin: 0px auto;
-    margin-top: 40px;
+    background: #f6f6f6;
+    border-radius: 20px;
 }
 .home_title_area{
     line-height: 50px;
-    width: 53.2%;
+    width: 215px;
     float: left;
     text-align: left;
 }
@@ -44,19 +47,23 @@
     height: 30px;
     font-weight: bold
 }
+.el-tabs__header .el-tabs__item {
+    font-size: 20px!important;
+    /* margin-left: 10px!important; */
+    margin-top: 10px!important;
+}
 /*天数选择按钮区域*/
 .day_button{
-    float: left;
-    width: 46.8%
-}
-.day_button div{
-    width: 33.3%;
-    float: left
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    place-content: flex-end;
+    padding-right: 10px;
 }
 .day_button button{
-    width: 100px;
+    width: 95px;
     height: 46px;
-    border-radius: 23px;
+    border-radius: 20px;
     border-color: #001594;
     color: #001594;
 }

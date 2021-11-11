@@ -1,5 +1,5 @@
 <template>
-  <div class="adamBackground homeCon" v-title data-title="AdamScan">
+  <div  v-title data-title="AdamScan">
     <div></div>
     <div>
       <div>

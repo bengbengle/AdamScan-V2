@@ -1,9 +1,9 @@
 <template>
-    <div style='min-height: 500px;'>
+    <div style='min-height: 500px; margin: -480px -20px -20px;'>
         <iframe style="
             border: navajowhite;
             width: 100vw;
-            height: 100vh;
+            height: 500px;
         " src='https://testnet.map.adambox.io?r=1'></iframe>
     </div>
 </template>
@@ -13,6 +13,7 @@
         components: {
         },
         mounted() {
+            
         },
         data() {
             return {}

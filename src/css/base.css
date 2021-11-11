@@ -1,9 +1,10 @@
 body{
     margin: 0;
     position:relative;
+    background: url(../img/home_background.png) no-repeat;
+    background-size: 100% 600px;
 }
 /* 斑马纹 */
-/* hover */
 .el-table--enable-row-hover .el-table__body tr:hover {
     background-color: #ffd8dc !important;
 }
@@ -21,11 +22,12 @@ body{
 }
 /*底部数据区域*/
 .all_data_area{
-    margin: 57px 0px 96px 0px;
+    margin: 10px 0px 26px 0px;
     width: 100%;
-    border-radius: 40px;
-    background: white;
+    border-radius: 20px;
+    /* background: white; */
     position: relative;
+    /* box-shadow: 8px 8px 1px #93939317; */
 }
 .all_data_area .data{
     width: 98%;
@@ -47,7 +49,7 @@ body{
 }
 .public_label_icon{
     width: 10px;
-    height: 28px;
+    height: 38px;
     background: #001594;
     float: left;
     border: 0px;
@@ -95,42 +97,35 @@ body{
 }
 /*搜索框区域*/
 .search_area{
-    /*margin-bottom: 135px;*/
     width: 100%;
-    float: left;
 }
 .input-with-select{
-    height: 80px;
+    height: 64px;
     border-radius: 10px 10px;
-}
-.width-big{
-    width: 61.6%;
-    margin: 6% 19.1% 0% 19.1%;
 }
 .width-small{
     width: 55.7%;
     margin: 0% 0% 0% 0%;
 }
 .input-with-select .el-input__inner{
-    height: 80px;
+    height: 64px;
     border-radius: 0px 40px 40px 0px;
     border: 0px;
     font-size: 15px;
     font-weight: bold;
 }
 .input-with-select .search_button{
-    width: 80px;
-    height: 80px;
+    width: 64px;
+    height: 64px;
     border: 0px transparent;
 }
 .input-with-select .el-input-group__append{
-    border-radius: 40px;
+    border-radius: 20px;
     border: 0px;
 }
 .input-with-select .el-input-group__prepend{
-    /*position: absolute;*/
     width: 150px;
-    height: 80px;
+    height: 64px;
     padding: 0px 0px;
     margin: 5px 0px;
     border: 0px;
@@ -142,20 +137,20 @@ body{
 }
 
 .home_base_main{
-    width: 100%;
-    float: left;
-    min-height: 600px
+    /* min-height: 600px; */
+    padding: 20px;
+    background-color: #F6F6F6;
+    /* margin-top: -440px; */
 }
 
 .home_container_div .el-container{
     width: 100%;
 }
 .el-input__suffix-inner .search_button{
-    font-size: 40px;
-    font-weight: bold;
-    /*鼠标变小手*/
-    cursor: pointer;
-    line-height: 80px;
+    font-size: 33px!important;;
+    font-weight: bold!important;;
+    cursor: pointer!important;;
+    line-height: 64px!important;
 }
 .el-select .el-input .el-select__caret{
     color: white;
@@ -165,9 +160,10 @@ body{
 }
 .select_div{
     width: 150px;
-    height: 80px;
+    height: 64px;
     border-radius: 40px 0px 0px 40px;
     background-color: white;
+    border: none;
 }
 .select_div .el-select{
     margin: 0px 0px;
@@ -175,9 +171,9 @@ body{
 }
 .select_div .el-input{
     width: 140px;
-    height: 70px;
-    margin: 5px;
-    line-height: 70px;
+    height: 60px;
+    margin: 2px;
+    line-height: 60px;
     border-radius: 35px;
     background-color: #FF6B22;
 }
@@ -199,109 +195,108 @@ body{
     width: 100%;
 }
 .data_area{
-    /* width: 73%;
-    margin: 0px 13.5%;
-    float: left;
-    background: transparent;
-    min-width: 1280px; */
     max-width: 1280px;
     margin: 0px auto;
+    margin-top: -300px;
 }
 .data_area:first-child.el-row{
     text-align: center;
     line-height: 200px;
 }
 .first_data{
-    margin: 0px 1.5%;
-    min-width: 22%;
-    min-height: 212px;
     background-color: white;
-    border-radius: 40px;
+    border-radius: 20px;
     text-align: center;
-    font-size: 37px;
+    font-size: 30px;
     color: black;
     font-weight: bold;
     line-height: 50px;
     font-family: "AlibabaPuHuiTiB";
+    padding: 10px 0px;
+    height: 134px;
+    margin: 0px 7.5px;
 }
 .first_data .second_text{
-    height: 100px;
     text-align: center;
-    font-size: 21px;
+    font-size: 15px;
     color: #999999;
     font-family: "AlibabaPuHuiTiB";
+    padding-bottom: 10px;
 }
+.first_data .el-tooltip {
+    z-index: 1111;
+} 
 .second_area{
     margin-top: 28px;
     min-width: 22%;
-    min-height: 212px;
     background-color: white;
-    border-radius: 40px;
     text-align: center;
-    font-size: 21px;
+    font-size: 18px;
     color: black;
     font-weight: bold;
-    line-height: 50px;
     font-family: "AlibabaPuHuiTiB";
 }
 .second_area .second_text{
     height: 100px;
     text-align: center;
-    font-size: 17px;
+    font-size: 15px;
     color: #999999;
+    margin: 15px 5px;
     font-family: "AlibabaPuHuiTiB";
+    font-weight: 500;
 }
-
-.graph_ranking_area{
-    margin-top: 54px;
-    width: 100%;
+.second_area .el-col-8{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.graph_ranking_area {
+    /* width: 100%; */
     min-height: 720px;
     text-align: center;
     line-height: 100%;
+    border-radius: 20px;
+    box-shadow: 8px 8px 1px #93939317;
+    margin: 10px;
 }
 
-.graph_area{
+.graph_area {
     float: left;
     width: 100%;
     height: 720px;
     background: white;
-    border-radius: 40px;
+    border-radius: 20px;
 }
 
-.ranking_area{
+.ranking_area {
     border: 0px;
     float: left;
     margin-left: 1%;
     width: 35.1%;
     min-height: 720px;
     background: white;
-    border-radius: 40px;
+    border-radius: 20px;
 }
 .ranking_area .data{
     text-align: center;
     width: 98%;
     margin: 10px 1%;
-    border-radius: 40px;
+    border-radius: 20px;
     border: 0px;
     box-shadow: 0px 0px 0px 0px;
 }
 
 .home_head {
-    width: 100%;
-    height: 436px;
-    background: url(../img/other_background.png);
-}
-.head_size{
-    text-align: left;
-    height: 60px;
-    padding: 10px 13.5% 0px 13.5%;
+    height: 550px;
+    padding: 20px;
+    max-width: 960px;
+    margin: 0px auto;
 }
 .home_head .headArea {
     width: 60px;
     height: 60px;
     border-radius: 30px 30px;
     line-height:60px;
-    /*display:block;*/
 }
 .logo_div{
     width: 11.1%;
@@ -313,7 +308,6 @@ body{
     height: 40px;
     border-radius: 10px 10px;
     float: left;
-    /*display:block;*/
 }
 .el-menu-demo{
     width: 100%;
@@ -325,14 +319,8 @@ body{
     width: 100%;
     height: auto;
     background: #F6F6F6;
-    /*background-image:url("~@/img/home_background.png");*/
     z-index:-1;
     position: absolute;
-    /*-moz-background-size:100% 852px;*/
-    /*background-size:100% 852px;*/
-    /*背景图不滚动*/
-    /*background-attachment: fixed;*/
-    /*background-size:100% 100%;*/
 }
 .text_color{
     color: #F8F8F8;
@@ -422,23 +410,27 @@ body{
     text-align: center;
 }
 .left_div{
-    /* margin: 79px 0px 0px 14.7%; */
-    /* width: 18%; */
-    /* float: left; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 30px;
+    padding: 10px;
     max-width: 960px;
     margin: 0 auto;
 }
+.home_base_main .el-tabs__header {
+    padding: 0px 20px 10px!important;
+}
+.home_base_main .el-tabs__header .el-tabs__nav-prev {
+    margin-top: 10px!important;
+}
+.home_base_main .el-tabs__header .el-tabs__nav-next {
+    margin-top: 10px!important;
+}
 .content_div{
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
-    /* padding: 30px; */
     max-width: 960px;
     margin: 0 auto;
 }
@@ -454,4 +446,18 @@ body{
 }
 .myChart:first-child{
     width: 100%;
+}
+
+
+.second.el-row {
+    background: white;
+    border-radius: 20px;
+    margin: 20px 10px;
+    box-shadow: 8px 8px 1px #93939317;
+}
+
+
+
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+    background-color: #001594!important;
 }

@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+
 import router from './router.js';
 import './axios.js';
 
@@ -41,6 +45,8 @@ Vue.use(HomeHead)
 Vue.use(HomeFooter)
 
 Vue.use(ElementUI)
+
+Vue.use(MintUI)
 
 Vue.config.productionTip = false
 

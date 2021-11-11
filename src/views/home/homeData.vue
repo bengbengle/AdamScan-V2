@@ -19,7 +19,6 @@
                 </div>
             </div>
             <div :hidden="!isExist">
-                <!-- echarts图表部分 -->
                 <div ref="wrap" class="chartsStyle">
                     <div class="myChart" id="myChart" ref="charts"></div>
                 </div>
@@ -27,17 +26,7 @@
             <div :hidden="isExist" style="position: absolute;width: 40%;left: 30%;top: 50%">
                 暂无数据
             </div>
-        </div>
-<!--        <div class="ranking_area">-->
-<!--            <el-table :data="tableData"-->
-<!--                      :header-cell-style="headerStyle"-->
-<!--                      :cell-style="cellStyle"-->
-<!--                      class="data">-->
-<!--                <el-table-column min-width="100" style="text-align: center;" prop="date" label="日期"> </el-table-column>-->
-<!--                <el-table-column min-width="100" prop="name" label="姓名"> </el-table-column>-->
-<!--                <el-table-column min-width="200" prop="address" label="地址"> </el-table-column>-->
-<!--            </el-table>-->
-<!--        </div>-->
+        </div> 
     </div>
 </template>
 
@@ -103,31 +92,18 @@
                             let item = this.list[i];
                             this.xData.push(item.time)
                             this.yData.push(item.power)
-                            // let totalMap = {
-                            //     name: item.id,
-                            //     id: item.name,
-                            //     value: item.id,
-                            //     age: item.age,
-                            // }
-                            // this.seriesData.push(totalMap)
                         }
                         this.seriesData = res.data;
                         if(this.seriesData.length <= 0){
                             this.isExist = false
                             return
                         }
-                        // console.info("1:" + this.xData)
-                        // console.info("2:" + JSON.stringify(this.yData))
-                        // console.info("3:" + JSON.stringify(this.seriesData))
                         setTimeout(()=>{  //为了让加载动画效果明显,这里加入了setTimeout,实现300ms延时
                             myChart.hideLoading(); //隐藏加载动画
                             myChart.setOption({
                                 xAxis: {
                                     data: this.xData
                                 },
-                                // yAxis: {
-                                //     data: this.yData
-                                // },
                                 series: [{
                                     data: this.yData
                                 }]
