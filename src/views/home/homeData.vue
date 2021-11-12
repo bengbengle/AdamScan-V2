@@ -4,7 +4,7 @@
             <div class="top" style="margin: 26px 0px 0px 0px;">
                 <div class="home_title_area">
                     <i class="public_label_icon home_label_shift"></i>
-                    <span>Daily Pledge Trend</span>
+                    <span>Daily Pledge</span>
                 </div>
                 <div class="day_button">
                     <div>

@@ -219,4 +219,7 @@ export default {
 </script>
 
 <style scoped>
+.second_area .data_icon {
+  margin-left: 10px;
+}
 </style>

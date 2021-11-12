@@ -56,7 +56,7 @@
             </el-menu>
           </div>
         </el-row>
-        <el-row :hidden="ismap" style="margin: 50px 20px">
+        <el-row :hidden="ismap" style="margin: 50px 0px">
           <div :hidden="allHidden" class="search_area">
             <el-input
               size="large"

@@ -37,18 +37,22 @@
     border-radius: 20px;
 }
 .home_title_area{
-    line-height: 50px;
+    /* line-height: 50px;
     width: 215px;
     float: left;
-    text-align: left;
+    text-align: left; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 .home_title_area span{
-    margin-left: 16px;
-    height: 30px;
+    /* margin-left: 16px; */
+    /* height: 30px; */
     font-weight: bold
 }
 .el-tabs__header .el-tabs__item {
-    font-size: 20px!important;
+    font-size: 16px!important;
     /* margin-left: 10px!important; */
     margin-top: 10px!important;
 }
@@ -66,6 +70,7 @@
     border-radius: 0.8rem;
     border-color: #001594;
     color: #001594;
+    margin-left: 0.2rem;
 }
 .day_button button:hover{
     color: white;

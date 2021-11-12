@@ -57,8 +57,11 @@
     </div>
     <div class="charts_show_div">
       <div class="div_area">
-        <i class="public_label_icon" style="margin: 10px 10px"></i>
-        <span class="title_text">Asset Statistics</span>
+         <div class="div_title">
+          <i class="public_label_icon" style="margin: 10px 10px"></i>
+          <span class="title_text">Asset Statistics</span>
+        </div>
+        <div></div>
       </div>
       <div
         id="pieChartLeft"
@@ -88,10 +91,17 @@
     </div>
 
     <div class="charts_show_div">
-      <div class="div_area">
+       <div class="div_area">
+         <div class="div_title">
+          <i class="public_label_icon" style="margin: 10px 10px"></i>
+           <span class="title_text">Computing power statistics</span>
+        </div>
+        <div></div>
+      </div>
+      <!-- <div class="div_area">
         <i class="public_label_icon" style="margin: 10px 10px"></i>
         <span class="title_text">Computing power statistics</span>
-      </div>
+      </div> -->
       <div
         id="pieChartRight"
         ref="pieChartRight"

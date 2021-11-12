@@ -57,7 +57,7 @@ body{
     border-radius: 5px;
 }
 .home_label_shift{
-    margin: 10px 10px 10px 26px;
+    margin: 10px;
 }
 /*搜索框左侧区域*/
 .user_menu_display{
@@ -101,7 +101,7 @@ body{
     width: 100%;
 }
 .input-with-select{
-    height: 64px;
+    height: 55px;
     border-radius: 10px 10px;
 }
 .width-small{
@@ -109,15 +109,16 @@ body{
     margin: 0% 0% 0% 0%;
 }
 .input-with-select .el-input__inner{
-    height: 64px;
+    height: 55px;
     border-radius: 0px 40px 40px 0px;
     border: 0px;
     font-size: 15px;
     font-weight: bold;
+    padding-left: 0px!important;
 }
 .input-with-select .search_button{
-    width: 64px;
-    height: 64px;
+    width: 55px;
+    height: 55px;
     border: 0px transparent;
 }
 .input-with-select .el-input-group__append{
@@ -125,8 +126,8 @@ body{
     border: 0px;
 }
 .input-with-select .el-input-group__prepend{
-    width: 150px;
-    height: 64px;
+    width: 120px;
+    height: 55px;
     padding: 0px 0px;
     margin: 5px 0px;
     border: 0px;
@@ -151,7 +152,7 @@ body{
     font-size: 33px!important;;
     font-weight: bold!important;;
     cursor: pointer!important;;
-    line-height: 64px!important;
+    line-height: 50px!important;
 }
 .el-select .el-input .el-select__caret{
     color: white;
@@ -160,8 +161,8 @@ body{
     color: white;
 }
 .select_div{
-    width: 150px;
-    height: 64px;
+    width: 120px;
+    height: 55px;
     border-radius: 40px 0px 0px 40px;
     background-color: white;
     border: none;
@@ -171,10 +172,10 @@ body{
     border: 0px;
 }
 .select_div .el-input{
-    width: 140px;
-    height: 60px;
+    width: 110px;
+    height: 50px;
     margin: 2px;
-    line-height: 60px;
+    line-height: 50px;
     border-radius: 35px;
     background-color: #FF6B22;
 }
@@ -204,31 +205,36 @@ body{
     text-align: center;
     line-height: 200px;
 }
+.data_area .first {
+    margin: 0px 5px;
+}
+.data_area .first  .el-col-8 {
+    padding: 0px 5px;
+}
 .first_data{
     background-color: white;
     border-radius: 20px;
     text-align: center;
-    font-size: 22px;
+    font-size: 18px;
     color: black;
     font-weight: bold;
-    line-height: 50px;
     font-family: "AlibabaPuHuiTiB";
-    padding: 10px 0px;
-    height: 130px;
-    margin: 0px 5px;
+    padding: 5px;
+    height: 100px;
 }
 .first_data .second_text{
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
     color: #999999;
     font-family: "AlibabaPuHuiTiB";
     padding-bottom: 10px;
+    margin-top: 10px;
 }
 .first_data .el-tooltip {
     z-index: 1111;
 } 
 .second_area{
-    font-size: 18px;
+    font-size: 14px;
     color: black;
     font-weight: bold;
     font-family: "AlibabaPuHuiTiB";
@@ -239,9 +245,8 @@ body{
     align-items: flex-start;
 }
 .second_area .second_text{
-    /* height: 100px; */
     text-align: center;
-    font-size: 15px;
+    font-size: 12px;
     color: #999999;
     margin: 15px 5px;
     font-family: "AlibabaPuHuiTiB";
@@ -268,6 +273,12 @@ body{
     height: 720px;
     background: white;
     border-radius: 20px;
+}
+.graph_area .top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .ranking_area {
@@ -405,7 +416,7 @@ body{
     color: #FEFEFE;
 }
 .bottomlogo {
-    width: 350px;
+    width: 270px;
 }
 .footerdesc{
     margin-top: 20px;
@@ -454,7 +465,7 @@ body{
 .second.el-row {
     background: white;
     border-radius: 20px;
-    margin: 20px 10px;
+    margin: 20px 5px;
     box-shadow: 8px 8px 1px #93939317;
 }
 
@@ -462,4 +473,8 @@ body{
 
 .el-pagination.is-background .el-pager li:not(.disabled).active {
     background-color: #001594!important;
+}
+
+.el-button {
+    padding: 10px!important;
 }

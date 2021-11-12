@@ -198,13 +198,13 @@ export default {
   margin: 10px;
 }
 .adam_filed_key {
-  font-size: 20px;
+  font-size: 16px;
   font-family: Alibaba PuHuiTi;
   font-weight: 500;
   color: #999999;
 }
 .adam_filed_value {
-  font-size: 18px;
+  font-size: 16px;
   font-family: Alibaba PuHuiTi;
   font-weight: 500;
   color: #000000;
