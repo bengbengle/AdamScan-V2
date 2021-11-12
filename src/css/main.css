@@ -22,8 +22,9 @@
 }
 /*board数据区域*/
 .board_data_area{
+    margin: 3px;
     margin-top: -300px;
-    width: 100%;
+    /* width: 100%; */
     min-height: 600px;
     background: white;
     border-radius: 20px;

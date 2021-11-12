@@ -96,7 +96,7 @@
     <mt-popup v-model="popupVisible" position="right">
       <el-card class="box-card">
         <div
-          v-for="o in ['Home', 'Leaderboard', 'Map']"
+          v-for="o in ['Home', 'Leaderboard', 'Global', 'Map']"
           :key="o"
           class="text item"
           @click="handleMenuItemClick"
@@ -128,6 +128,15 @@ export default {
     //初始化时，需要根据路径判断样式
     let path = location.hash.replace("#/", "");
     console.log("path::::::::", path, location);
+
+    switch(path){
+      case 'map':
+          this.ismap = true;
+        break;
+        default:
+          this.ismap = false;
+          break;
+    }
     //判断路径替换样式
     // this.updateStyle(path);
   },
@@ -180,7 +189,6 @@ export default {
           this.isHidden = true;
           this.allHidden = false;
           this.backgroundImg = this.homeBackground;
-          // this.activeStyle = "margin: 70px 0px 112px 0px";
           this.backgroundStyle = "height: 784px;width: 100%";
           this.isShowPri = false;
           this.headerStyle = "";
@@ -188,28 +196,10 @@ export default {
           break;
         case "map":
           this.ismap = true;
-          //   this.headerStyle = "height: 75px; ";
-
-          console.log("map");
           break;
         case "account":
-          // this.backgroundImg = this.otherBackground;
-          // // this.activeStyle = "margin: 79px 0px 28px 0px";
-          // this.backgroundStyle = "height: 314px;width: 100%"
-          // // this.isShowPer = false
-          // this.isShowPri = false
-
-          // this.headerStyle = ""
-          // this.ismap = false
           break;
         case "leaderboard":
-          // this.title = "Leaderboard";
-          // this.classValue = "input-with-select width-small";
-          // this.isHidden = false;
-          // this.allHidden = false;
-          // // this.isShowPer = false
-          // this.isShowPri = false
-          //  console.log('leaderboard')
           break;
         default:
           this.classValue = "input-with-select width-big";
@@ -227,60 +217,6 @@ export default {
           console.log("default", path);
           break;
       }
-      // if( str.search("home") != -1){
-      //     // this.classValue = "input-with-select width-big";
-      //     // this.isHidden = true;
-      //     // this.allHidden = false;
-      //     // // this.backgroundImg = require("@/img/home_background.png");
-      //     // this.backgroundImg = this.homeBackground;
-      //     // this.activeStyle = "margin: 70px 0px 112px 0px";
-      //     // this.backgroundStyle = "height: 784px;width: 100%"
-      //     // // this.isShowPer = false
-      //     // this.isShowPri = false
-
-      //     // this.headerStyle = ""
-      //     // this.ismap = false
-      // } else if(str.search("map") != -1) {
-
-      //     // this.ismap = true
-      //     // this.headerStyle = "height: 75px; "
-
-      // } else {
-      //     // this.title = "Leaderboard";
-      //     // this.classValue = "input-with-select width-small";
-      //     // this.isHidden = false;
-      //     // this.allHidden = false;
-      //     // // this.isShowPer = false
-      //     // this.isShowPri = false
-      //     // if(str.search("resource") != -1){
-      //     //     // this.backgroundImg = require("@/img/resource_background.png");
-      //     //     this.backgroundImg = this.resourceBackground;
-      //     //     this.activeStyle = "margin: 79px 0px 135px 0px";
-      //     //     this.backgroundStyle = "height: 793px;width: 100%"
-      //     //     // this.isShowPer = false
-      //     //     this.isShowPri = true
-      //     //     //查询当前价格
-      //     //     this.getAdamPrice()
-
-      //     //     this.headerStyle = ""
-      //     //     this.ismap = false
-      //     } else {
-      //         if(str.search("account") != -1){
-      //             this.title = "Account"
-      //         }
-      //         // console.info("33")
-      //         this.backgroundImg = this.otherBackground;
-      //         this.activeStyle = "margin: 79px 0px 28px 0px";
-      //         this.backgroundStyle = "height: 314px;width: 100%"
-      //         // this.isShowPer = false
-      //         this.isShowPri = false
-
-      //         this.headerStyle = ""
-      //         this.ismap = false
-      //         // if(str.search("account") != -1){
-      //         // }
-      //     }
-      // }
     },
     handleIconClick() {
       console.log(

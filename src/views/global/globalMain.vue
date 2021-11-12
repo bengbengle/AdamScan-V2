@@ -1,12 +1,12 @@
 <template>
     <div class="background_global">
         <div class="content">
-            <el-row style="padding: 2% 0.6%;">
+            <el-row class="content-title">
                 <i class="public_label_icon "></i>
                 <div class="title_content">Quick entry</div>
             </el-row>
             <el-row>
-                <el-col :span="6">
+                <el-col :span="12">
                     <div class="jump_area">
                         <div class="bottom_background">
                             <div class="top">
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                 </el-col>
-                <el-col :span="6">
+                <el-col :span="12">
                     <div class="jump_area">
                         <div class="bottom_background">
                             <div class="top">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </el-col>
-                <el-col :span="6">
+                <el-col :span="12">
                     <div class="jump_area">
                         <div class="bottom_background">
                             <div class="top">
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                 </el-col>
-                <el-col :span="6">
+                <el-col :span="12">
                     <div class="jump_area">
                         <div class="bottom_background">
                             <div class="top">
@@ -77,32 +77,6 @@
                     </div>
                 </el-col>
             </el-row>
-            <!-- <el-row style="margin: 5% 0% 3% 0%;">
-                <i class="public_label_icon"></i>
-                <div class="title_content">Official cooperation</div>
-            </el-row> -->
-            <!-- <el-row>
-                <el-col :span="6">
-                    <div class="offcial_area">
-                        <el-image class="officialLogo" :src="logoCaiJing" @click="jumpOfficial('https://www.jinse.com/')"></el-image>
-                    </div>
-                </el-col>
-                <el-col :span="6">
-                    <div class="offcial_area">
-
-                    </div>
-                </el-col>
-                <el-col :span="6">
-                    <div class="offcial_area">
-
-                    </div>
-                </el-col>
-                <el-col :span="6">
-                    <div class="offcial_area">
-
-                    </div>
-                </el-col>
-            </el-row> -->
         </div>
     </div>
 </template>

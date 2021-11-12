@@ -1,5 +1,5 @@
 <template>
-    <div style='min-height: 500px; margin: -480px -20px -20px;'>
+    <div class="container">
         <iframe style="
             border: navajowhite;
             width: 100vw;
@@ -23,6 +23,10 @@
 </script>
 
 <style scoped>
+    .container {
+        min-height: 500px; 
+        margin-top: -480px;
+    }
     .level_second .el-image__inner{
         width: 80px;
     }

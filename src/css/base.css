@@ -119,7 +119,10 @@ body{
 .input-with-select .search_button{
     width: 55px;
     height: 55px;
-    border: 0px transparent;
+    border: 0 transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .input-with-select .el-input-group__append{
     border-radius: 20px;
@@ -140,7 +143,6 @@ body{
 
 .home_base_main{
     padding: 3px;
-    /* background-color: #F6F6F6; */
     max-width: 1280px;
     margin: 0px auto;
 }
@@ -149,7 +151,7 @@ body{
     width: 100%;
 }
 .el-input__suffix-inner .search_button{
-    font-size: 33px!important;;
+    font-size: 28px!important;;
     font-weight: bold!important;;
     cursor: pointer!important;;
     line-height: 50px!important;
@@ -444,7 +446,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 960px;
+    max-width: 750px;
     margin: 0 auto;
 }
 .content_div .el-row {
