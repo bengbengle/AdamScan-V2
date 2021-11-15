@@ -26,9 +26,7 @@ body{
     margin: 10px 0px 26px 0px;
     width: 100%;
     border-radius: 20px;
-    /* background: white; */
     position: relative;
-    /* box-shadow: 8px 8px 1px #93939317; */
 }
 .all_data_area .data{
     width: 98%;
@@ -36,11 +34,11 @@ body{
     margin: 1.5% 1%;
 }
 .all_data_area .head_area{
-    line-height: 50px;
+    /* line-height: 50px;
     width: 50%;
     float: left;
     margin-top: 26px;
-    text-align: left;
+    text-align: left; */
 }
 .head_search_area{
     line-height: 50px;
@@ -57,7 +55,7 @@ body{
     border-radius: 5px;
 }
 .home_label_shift{
-    margin: 10px;
+    margin: 2px;
 }
 /*搜索框左侧区域*/
 .user_menu_display{
@@ -248,7 +246,7 @@ body{
 }
 .second_area .second_text{
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
     color: #999999;
     margin: 15px 5px;
     font-family: "AlibabaPuHuiTiB";
@@ -259,22 +257,22 @@ body{
     flex-direction: column;
     padding: 5px;
 }
-.graph_ranking_area {
-    /* width: 100%; */
-    min-height: 720px;
+/* .graph_ranking_area {
     text-align: center;
-    line-height: 100%;
     border-radius: 20px;
     box-shadow: 8px 8px 1px #93939317;
     margin: 10px;
-}
+} */
 
 .graph_area {
-    float: left;
-    width: 100%;
-    height: 720px;
     background: white;
+    text-align: center;
+    box-shadow: 8px 8px 1px #93939317;
+    margin: 10px;
+    padding: 10px;
+    height: 260px;
     border-radius: 20px;
+    padding-left: 15px;
 }
 .graph_area .top {
     display: flex;
@@ -282,6 +280,14 @@ body{
     justify-content: space-between;
     align-items: center;
 }
+
+.graph_area .chartsStyle{
+    /* margin: 5px; */
+    height: 220px;
+    width: 95%;
+}
+
+
 
 .ranking_area {
     border: 0px;
@@ -459,9 +465,10 @@ body{
     height:100%;
     width:100%
 }
-.myChart:first-child{
-    width: 100%;
-}
+/* .myChart:first-child{
+    width: 90%;
+    margin-left: 5%;
+} */
 
 
 .second.el-row {
@@ -477,6 +484,14 @@ body{
     background-color: #001594!important;
 }
 
+.el-pager li {
+    margin: 0 0.1rem!important;
+}
+
 .el-button {
     padding: 10px!important;
+}
+
+.el-message {
+    min-width: 200px!important;
 }

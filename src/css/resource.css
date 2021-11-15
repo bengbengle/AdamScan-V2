@@ -40,30 +40,36 @@
     font-weight: bold;
 }
 .data_icon{
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     position: relative;
 }
 .first_data .data_icon{
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     float: right;
     margin-right: 5px;
     margin-top: 5px;
 }
 .second_area .data_icon{
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     position: absolute;
     margin-top: 3px;
     margin-left: calc(15.5% - 30px);
 }
 
 .content_address{
-    padding: 10px;
     text-align: center;
     font-size: 16px;
     font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 .content_address_icon{
     background: #D8D8D8;
@@ -106,7 +112,7 @@
 }
 /*饼图部分*/
 .charts_show_div{
-    min-height: 400px;
+    min-height: 300px;
     padding: 20px 10px;
     background: white;
     border-radius: 20px;
@@ -247,10 +253,6 @@
     align-items: center;
     justify-content: flex-end;
 }
-.resource_button_div{
-    /* width: 90px; */
-    /* float: left */
-}
 .resource_button_div button{
     border-radius: 0.8rem;
     border-color: #001594;
@@ -266,11 +268,8 @@
     background: #001594;
 }
 
-
-
-#barChartLeft {
-    height:550px;width:100%;margin-top: 80px;background-color: transparent;
-}
-#barChartRight {
-    height:550px;width:100%;margin-top: 80px;background-color: transparent;
+#pieChartLeft, #pieChartRight , #barChartLeft, #barChartRight  {
+    height:300px;
+    width:100%;
+    background-color: transparent;
 }

@@ -12,6 +12,7 @@
     "core-js": "^3.6.5",
     "echarts": "^4.9.0",
     "element-ui": "^2.15.3",
+    "iclipboard": "^1.0.1",
     "mavon-editor": "^2.9.1",
     "mint-ui": "^2.2.13",
     "vue": "^2.6.14",

@@ -1,16 +1,11 @@
 /*线形图区块*/
-.chartsStyle{
+/* .chartsStyle{
     float: left;
     margin: 0vh 0vh 0% 0vh;
-    height: 600px;
+    height: 300px;
     width: 100%;
-}
-.graph_ranking_area .top{
-    /* margin: 4.5% 0vh 0vh 3.8%;
-    float: left;
-    width: 95.5%;
-    height: 50px; */
-}
+} */
+ 
 /*account数据区域*/
 .account_data_area{
     width: 96%;
@@ -50,6 +45,7 @@
 .home_title_area span{
     /* margin-left: 16px; */
     /* height: 30px; */
+    width: 101px;
     font-weight: bold
 }
 .el-tabs__header .el-tabs__item {

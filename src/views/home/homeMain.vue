@@ -13,7 +13,7 @@
               >
                 <el-image class="data_icon" :src="excIcon"></el-image>
               </el-tooltip>
-              <el-row style="padding-top: 20px">
+              <el-row class='first_data_icon'>
                 ${{ showValue(adamPrice) }}
               </el-row>
               <el-row class="second_text"> ADAM price </el-row>
@@ -29,7 +29,7 @@
               >
                 <el-image class="data_icon" :src="excIcon"></el-image>
               </el-tooltip>
-              <el-row style="padding-top: 20px">
+              <el-row class='first_data_icon'>
                 {{ showPowerValue(simpData.totalPower) + '' }} 
               </el-row>
               <el-row class="second_text"> Network Power </el-row>
@@ -45,7 +45,7 @@
               >
                 <el-image class="data_icon" :src="excIcon"></el-image>
               </el-tooltip>
-              <el-row style="padding-top: 20px">
+              <el-row class='first_data_icon'>
                 {{ simpData.totalNode }}
               </el-row>
               <el-row class="second_text"> Wallet address of network </el-row>
@@ -55,7 +55,7 @@
         <el-row class="second">
           <div class="second_area">
             <el-col :span="8">
-              <el-row style="padding-top: 20px">
+              <el-row class='second_area_tile' >
                 {{ showValue(simpData.profit_24) }} ADAM
               </el-row>
               <el-row class="second_text">
@@ -71,11 +71,11 @@
               </el-row>
             </el-col>
             <el-col :span="8">
-              <el-row style="padding-top: 20px">
+              <el-row class="second_area_tile">
                 {{ simpData.totalAdam }} ADAM
               </el-row>
               <el-row class="second_text">
-                Internet pledge amount
+                Pledge amount
                 <el-tooltip
                   class="item"
                   effect="dark"
@@ -87,11 +87,11 @@
               </el-row>
             </el-col>
             <el-col :span="8">
-              <el-row style="padding-top: 20px">
+              <el-row class="second_area_tile">
                 {{ showValue(simpData.unitPrice) }} ADAM/TIB
               </el-row>
               <el-row class="second_text">
-                The number of ADAM pledged per T
+                Radio
                 <el-tooltip
                   class="item"
                   effect="dark"
@@ -106,19 +106,18 @@
         </el-row>
         <HomeData ref="children"></HomeData>
           
-        <div class="all_data_area">
-            <el-row>
-              <div class="head_area">
-                <i class="public_label_icon home_label_shift"></i>
-                <span style="height: 50px; font-weight: bold"
-                  >Collection list</span
-                >
-              </div>
-            </el-row>
-            <el-row>
-              <PageList ref="pageListData"></PageList>
-            </el-row>
-        </div>
+        <!-- <div class="all_data_area"> -->
+          <el-row>
+            <div class="head_area table-header">
+              <i class="public_label_icon home_label_shift"></i>
+              <span>Collection list</span
+              >
+            </div>
+          </el-row>
+          <el-row>
+            <PageList ref="pageListData"></PageList>
+          </el-row>
+        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -221,5 +220,26 @@ export default {
 <style scoped>
 .second_area .data_icon {
   margin-left: 10px;
+}
+.second_area_tile {
+    padding-top: 20px;
+    max-width: 120px;
+    margin: 0px auto;
+}
+.first_data_icon {
+  padding-top: 20px;
+}
+.table-header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+    margin-top: 10px;
+}
+.table-header i { 
+  margin: 0px 10px;
+}
+.table-header span{
+  font-weight: bold;
 }
 </style>

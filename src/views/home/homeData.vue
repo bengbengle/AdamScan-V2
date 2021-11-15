@@ -1,7 +1,7 @@
 <template>
-    <div class="graph_ranking_area">
+    <!-- <div class="graph_ranking_area"> -->
         <div class="graph_area">
-            <div class="top" style="margin: 26px 0px 0px 0px;">
+            <div class="top" >
                 <div class="home_title_area">
                     <i class="public_label_icon home_label_shift"></i>
                     <span>Daily Pledge</span>
@@ -18,16 +18,16 @@
                     </div>
                 </div>
             </div>
-            <div :hidden="!isExist">
-                <div ref="wrap" class="chartsStyle">
-                    <div class="myChart" id="myChart" ref="charts"></div>
-                </div>
+            <!-- <div :hidden="!isExist"> -->
+            <div ref="wrap" class="chartsStyle" :if="isExist">
+                <div class="myChart" id="myChart" ref="charts"></div>
             </div>
+            <!-- </div> -->
             <div :hidden="isExist" style="position: absolute;width: 40%;left: 30%;top: 50%">
                 暂无数据
             </div>
         </div> 
-    </div>
+    <!-- </div> -->
 </template>
 
 <script>

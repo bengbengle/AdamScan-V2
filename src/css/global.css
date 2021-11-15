@@ -57,13 +57,12 @@
 }
 .jump_area .top .logo{
     width: 24.4%;
-    height: 100px;
+    height: 70px;
     margin: 6.5% 37.7% 0px 37.7%
 }
 
-.jump_area .button{
+.jump_area .button {
     width: 40px;
     height: 40px;
-    /*鼠标变小手*/
     cursor: pointer;
 }

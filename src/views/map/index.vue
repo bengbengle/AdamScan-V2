@@ -2,7 +2,7 @@
     <div class="container">
         <iframe style="
             border: navajowhite;
-            width: 100vw;
+            width: 100%;
             height: 500px;
         " src='https://testnet.map.adambox.io?r=1'></iframe>
     </div>

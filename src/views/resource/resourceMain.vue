@@ -3,7 +3,10 @@
     <div class=" total_data">
         <el-image class="level_second" :src="circleUrl"></el-image>
     <div class="content_address">
-        <span>{{ address }}</span>
+          <span class='address_short'>
+            {{ address }}
+          </span>
+          <span @click="copyaddress(address)" class="btn_copy"></span>
     </div>
     <div style="width: 100%; height: 32px; text-align: center">
         <div class="content_address_icon">{{ poolName }}</div>
@@ -64,9 +67,7 @@
         <div></div>
       </div>
       <div
-        id="pieChartLeft"
-        ref="pieChartLeft"
-        style="height: 550px; width: 100%"
+        id="pieChartLeft" ref="pieChartLeft"
       ></div>
       <div
         class="pie_bottom_div"
@@ -97,15 +98,10 @@
            <span class="title_text">Computing power statistics</span>
         </div>
         <div></div>
-      </div>
-      <!-- <div class="div_area">
-        <i class="public_label_icon" style="margin: 10px 10px"></i>
-        <span class="title_text">Computing power statistics</span>
-      </div> -->
+      </div> 
       <div
         id="pieChartRight"
-        ref="pieChartRight"
-        style="height: 550px; width: 100%"
+        ref="pieChartRight" 
       ></div>
       <div
         class="pie_bottom_div"
@@ -200,39 +196,33 @@ import excIcon from "@/img/icon/exc_point.png";
 import { pieOptions, barOptions } from "@/api/resource/option";
 import PageList from "@/views/list/pageNodeList";
 import Utils from "@/utils/js/transferStation";
-import {
-  getNodeLinkGraph,
-  getProfitLinkGraph,
-  getAccDetailInfo,
-} from "@/api/resource/api";
+import { getNodeLinkGraph, getProfitLinkGraph, getAccDetailInfo } from "@/api/resource/api";
+import { copy } from 'iclipboard';
+import { Message } from "element-ui";
+
 export default {
   name: "resourceMain",
   components: {
     PageList,
   },
   mounted() {
-    this.changeList();
     this.pieEcharts();
     this.barEcharts();
     let that = this;
     Utils.$on("demo", function (params) {
       //增加属性判断是否激活
       this.isActiveMethod = true;
-      // console.info("当前入参:" + JSON.stringify(params))
       that.$nextTick(function () {
         //调用需要执行的方法
         that.getParams(params);
       });
     });
-    // console.info("-------------------------------")
     if (!this.isActiveMethod) {
       var params = {
-        searchType: 1, // sessionStorage.getItem('searchType') || 0,
+        searchType: 1,  
         searchValue: sessionStorage.getItem("searchValue"),
       };
-      // console.info("未激活入参:" + JSON.stringify(params))
       this.$nextTick(function () {
-        //调用需要执行的方法
         this.getParams(params);
       });
     }
@@ -257,7 +247,7 @@ export default {
       input: "",
       pointData: {
         one: "Child Node",
-        two: "Computing power",
+        two: "Power",
         three: "Rank",
         four: "Creation time",
       },
@@ -299,19 +289,6 @@ export default {
         },
       ],
       seriesData: [],
-      // headerStyle: {
-      //     'text-align':'center',
-      //     'font-size':'18px',
-      //     'color':'#999999',
-      //     'height':'50px',
-      //     'line-height': '50px',
-      //     'border':'0px'},
-      // cellStyle: {
-      //     'text-align':'center',
-      //     'color':'black',
-      //     'border':'0px',
-      //     'height':'55px'},
-      // cssStyle: "margin-top: 151px",
       xDataLF: [],
       xDataRG: [],
       yDataLF: [],
@@ -331,17 +308,22 @@ export default {
         this.initPageData(params);
       });
     },
+    copyaddress(addr) {
+      if(copy(addr)) {
+          Message({
+            message: "Copied",
+            type: "success",
+            duration: 2 * 1000
+          });
+      } else {
+          // alert('复制失败')
+      }
+    },
     //更新页面数据
     initPageData(params) {
-      // console.info("页面更新入参：" + JSON.stringify(params))
       console.log("params::", params);
       this.isActiveMethod = false;
       if (!params) return;
-
-      // console.info("页面参数:" + params.searchType)
-      // console.info("页面参数判断:" + (params.searchType == "1"))
-      // console.info("页面参数判断:" + (params.searchType == 1))
-      // console.info("页面参数判断:" + (1 == 1))
       //首先是修改最上方数据
       if (params.searchType == 1) {
         this.address = params.searchValue;
@@ -349,7 +331,6 @@ export default {
         this.getSortList();
       }
 
-      this.changeList();
       //更新线状图信息
       this.barEcharts();
       //更新饼图信息
@@ -358,14 +339,8 @@ export default {
       this.headerData();
     },
     updateTableHeight(value) {
-      console.log("value::", value);
-      // if(value >= 10){
-      //     this.cssStyle = "margin-top: 151px;min-height:" + (828 + (value / 10 - 1) * 500) + "px;"
-      // }
-    },
-    changeList() {
-      // this.$refs.pageListData.updateTableStyle(this.headerStyle,this.cellStyle);
-    },
+      console.log("value::", value); 
+    }, 
     handleIconClick() {
       //传递搜索参数
       this.$refs.pageListData.queryPageList(
@@ -381,11 +356,8 @@ export default {
         .then((res) => {
           var data = (res && res.data.length && res.data[0]) || null;
           if (!data) return;
-          // console.info("获取参数：" + JSON.stringify(res))
           if (res != undefined && res.code == 200) {
             this.poolName = (data && data.poolName) || "-";
-            //获取子节点个数
-            // this.getSortList("",this.address)
             //当前子节点数
             this.dataList.one = (data && data.count) || "-";
             //当前算力
@@ -409,8 +381,6 @@ export default {
         .catch();
     },
     pieEcharts(params) {
-      // let echarts = require('echarts/lib/echarts');    //可以直接写到方法中
-      // require('echarts/lib/chart/pie')        //饼状
       // 基于准备好的dom，初始化echarts实例
       let pieLeft = echarts.init(document.getElementById("pieChartLeft"));
       let pieRight = echarts.init(document.getElementById("pieChartRight"));
@@ -447,9 +417,6 @@ export default {
           ],
         });
       }, 300);
-      // if(this.address != "No Data" && this.address != ""){
-      //     this.getMinerCount(params)
-      // }
     },
     barEcharts(day, type) {
       if (day == undefined || day == "") {
@@ -457,9 +424,6 @@ export default {
       } else {
         day += "";
       }
-      // let echarts = require('echarts/lib/echarts');    //可以直接写到方法中
-      // require('echarts/lib/chart/bar')        //折线
-      // console.info("开始更新数据：" , day)
       var params = {
         address: this.address,
         day: day,
@@ -565,7 +529,6 @@ export default {
       this.yDataRG = [];
     },
     initBarData(params) {
-      // console.info("查看数据:" + JSON.stringify(params))
       //模拟拼接不同数据
       this.pieChartLeftList = [
         {
@@ -694,5 +657,20 @@ export default {
 }
 .el-col-8 .el-image {
     margin-left: 5px;
+}
+.btn_copy {
+  display: block;
+  background: url("~@/img/copy.png");
+  background-size: 100%;
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+}
+.address_short {
+  max-width: calc(100% - 125px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
 }
 </style>

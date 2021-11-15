@@ -25,7 +25,7 @@
           class="adam_filed"
         >
           <div class="adam_filed_key">
-            {{ idx2 }}
+            {{ idx2 }}：
           </div>
           <div class="adam_filed_value">
             {{ item }}
@@ -221,10 +221,11 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   height: 25px;
-  margin: 10px;
+  margin: 4px;
+      align-items: center;
 }
 .adam_filed_key {
-  font-size: 16px;
+  font-size: 12px;
   font-family: Alibaba PuHuiTi;
   font-weight: 500;
   color: #999999;

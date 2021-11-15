@@ -136,10 +136,10 @@ export default {
             'Rank': m.rank,
             'Address': m.s_address && m.s_address.substring(0, 4) + "..." + m.s_address.substr(38, 6),
             'Label': m.poolName,
-            "Current Computing Power": m.totalPower,
-            "Number of child nodes": m.nodeNum,
+            "Current Computing Power": m.power,
+            "Number of child nodes": m.count,
             "Coin Production（ADAM）":
-              m.rewardNum && parseFloat(m.rewardNum).toFixed(2),
+              m.profit && parseFloat(m.profit).toFixed(2),
           };
         });
       } else {
@@ -195,10 +195,11 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   height: 25px;
-  margin: 10px;
+  margin: 2px;
+  align-items: center;
 }
 .adam_filed_key {
-  font-size: 16px;
+  font-size: 12px;
   font-family: Alibaba PuHuiTi;
   font-weight: 500;
   color: #999999;
