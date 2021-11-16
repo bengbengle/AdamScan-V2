@@ -1,6 +1,16 @@
 export const pieOptions = {
     tooltip: {
-        trigger: 'item'
+        trigger: 'item',
+        formatter: function (params) {
+            console.log('params::', params);
+            return '<div style="text-align: left">'
+                + '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:'+ params.color + ';"></span>'
+                + '<span style="color: #ffffff;text-align: left;">'
+                + '<span style="color:#ffffff;">' + params.name + '</span>' + '<br/>&nbsp;&nbsp;&nbsp;&nbsp;' +  params.value
+                + '</span>'
+                + '</br>'
+                + '</div>';
+        }
     },
     color: [],
     legend: {
@@ -20,6 +30,7 @@ export const pieOptions = {
                 show: false,//是否默认显示中间文字  如果设置为true会有文字重叠的问题
                 position: 'center',
                 formatter: function (item) {
+
                     let unit = "";
                     if(item.name.search("power") != -1){
                         unit = "TIB"
@@ -30,7 +41,7 @@ export const pieOptions = {
                 },  //显示圆环中间的文字和百分比
                 rich: {
                     d: {
-                        fontSize: 28,
+                        fontSize: 18,
                         lineHeight: 30,
                         fontWeight: "bold",
                         color: "#333333",
@@ -97,7 +108,6 @@ export const barOptions = {
                 color: '#FF6B22',
                 width: 3
             }
-        },
+        }
     }]
 }
-

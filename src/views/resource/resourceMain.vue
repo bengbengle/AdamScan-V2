@@ -33,7 +33,7 @@
             <el-image class="data_icon" :src="excIcon"></el-image>
             </el-tooltip>
         </el-col>
-        <el-col :span="8">
+        <el-col :span="8" >
             {{ pointData.two }}
             <el-tooltip
             class="item"
@@ -66,18 +66,11 @@
         </div>
         <div></div>
       </div>
-      <div
-        id="pieChartLeft" ref="pieChartLeft"
-      ></div>
-      <div
-        class="pie_bottom_div"
-        v-for="item of pieChartLeftList"
-        :key="item.id"
-        :style="item.rate"
-      >
+      <div id="pieChartLeft" ref="pieChartLeft"></div>
+
+      <div class="pie_bottom_div" v-for="item of pieChartLeftList" :key="item.id" :style="item.rate">
         <div class="pie_bottom_data" :style="item.color"></div>
         <div class="pie_bottom_title">{{ item.name }}</div>
-
         <el-tooltip
           class="item"
           effect="dark"
@@ -86,7 +79,6 @@
         >
           <el-image class="data_icon" :src="excIcon"></el-image>
         </el-tooltip>
-
         <div style="float: right">{{ showValue(item.value) }} ADAM</div>
       </div>
     </div>
@@ -99,16 +91,8 @@
         </div>
         <div></div>
       </div> 
-      <div
-        id="pieChartRight"
-        ref="pieChartRight" 
-      ></div>
-      <div
-        class="pie_bottom_div"
-        v-for="item of pieChartRightListData"
-        :key="item.id"
-        :style="item.rate"
-      >
+      <div id="pieChartRight" ref="pieChartRight"></div>
+      <div class="pie_bottom_div" v-for="item of pieChartRightListData" :key="item.id" :style="item.rate">
         <div class="pie_bottom_data" :style="item.color"></div>
         <div class="pie_bottom_title">{{ item.name }}</div>
         <el-tooltip
@@ -313,7 +297,7 @@ export default {
           Message({
             message: "Copied",
             type: "success",
-            duration: 2 * 1000
+            duration: 200 * 1000
           });
       } else {
           // alert('复制失败')
@@ -654,6 +638,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    white-space: nowrap;
 }
 .el-col-8 .el-image {
     margin-left: 5px;
