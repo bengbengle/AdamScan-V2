@@ -38,13 +38,10 @@
               >
                 <el-menu-item index="home">Home</el-menu-item>
               </div>
-              <div
-                :class="isActive == 3 ? 'default_active' : 'menu_div'"
-                style="width: 23%"
-              >
+              <div :class="isActive == 3 ? 'default_active' : 'menu_div'"  style="width: 23%" >
                 <el-menu-item index="leaderboard">Leaderboard</el-menu-item>
               </div>
-              <div :class="isActive == 4 ? 'default_active' : 'menu_div'">
+              <div :class="isActive == 4 ? 'default_active' : 'menu_div' ">
                 <el-menu-item index="resource">Resources</el-menu-item>
               </div>
               <div :class="isActive == 5 ? 'default_active' : 'menu_div'">
@@ -268,10 +265,11 @@ export default {
       // eslint-disable-next-line no-undef
       jquery.ajax({
         type: "GET",
-        url: "https://bsc.api.0x.org/swap/v1/price?sellToken=0xdde077002982956DF24E23E3f3743BA5e56929fe&buyToken=0x55d398326f99059ff775485246999027b3197955&sellAmount=10000000",
+        url:'https://route-api.dodoex.io/dodoapi/getdodoroute?fromTokenAddress=0x59802AC95f2399c929a096171C1bee93C27daE90&fromTokenDecimals=8&toTokenAddress=0x55d398326f99059ff775485246999027b3197955&toTokenDecimals=18&fromAmount=100000000&slippage=3&userAddr=0xa8E7813150a988e7F20193983fA3017155F3C162&chainId=56&deadLine=1637306531&source=dodoV2AndMixWasm&apiKey=d61f2eb1ce8d',
+        // url: "https://bsc.api.0x.org/swap/v1/price?sellToken=0xdde077002982956DF24E23E3f3743BA5e56929fe&buyToken=0x55d398326f99059ff775485246999027b3197955&sellAmount=10000000",
         // async: false,
         success: function (res) {
-          price = res.price;
+          price = res.resPricePerFromToken;;
           that.title = "$ " + that.showValue(price);
           // console.info(JSON.stringify(res))
         },

@@ -1,10 +1,7 @@
 <template>
     <div class="container">
-        <iframe style="
-            border: navajowhite;
-            width: 100%;
-            height: 500px;
-        " :src="'https://testnet.map.adambox.io?r=' + Math.random(100) * 10 ** 17 "></iframe>
+        <iframe style="border: navajowhite; width: 100%;height: 500px;" :src="'https://map.adamscan.io?r=' + Math.random(100) * 10 ** 17 ">
+        </iframe>
     </div>
 </template>
 <script defer="true">

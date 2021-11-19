@@ -2,7 +2,8 @@ import axios from "axios";
 import { Message } from "element-ui";
 
 // const baseURL = "http://192.168.0.32:9094/";
-const baseURL = "https://scan.adamoracle.io/";
+// const baseURL = "https://scan.adamoracle.io/";
+const baseURL = "https://api.adamscan.io/";
 // const baseURL = "https://www.hnicae.com/";
 // const baseURL = "http://localhost:8082/";
 // create an axios instance
