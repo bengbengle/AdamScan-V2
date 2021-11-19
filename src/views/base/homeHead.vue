@@ -269,7 +269,7 @@ export default {
         // url: "https://bsc.api.0x.org/swap/v1/price?sellToken=0xdde077002982956DF24E23E3f3743BA5e56929fe&buyToken=0x55d398326f99059ff775485246999027b3197955&sellAmount=10000000",
         // async: false,
         success: function (res) {
-          price = res.resPricePerFromToken;;
+          price = res.data.resPricePerFromToken
           that.title = "$ " + that.showValue(price);
           // console.info(JSON.stringify(res))
         },
