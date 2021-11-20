@@ -3,9 +3,9 @@ import { Message } from "element-ui";
 
 // const baseURL = "http://39.104.78.79:8081/";
 // const baseURL = "http://47.241.183.80:10001/";
+const baseURL = "https://scan.adamoracle.io/";
 // const baseURL = "https://scan.adamoracle.io/";
-// const baseURL = "https://scan.adamoracle.io/";
-const baseURL = "https://api.adamscan.io/";
+// const baseURL = "https://api.adamscan.io/";
 // create an axios instance
 const service = axios.create({
   baseURL: baseURL // url = base url + request url
