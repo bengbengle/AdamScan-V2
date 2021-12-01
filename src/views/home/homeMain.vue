@@ -63,7 +63,7 @@
                                 {{simpData.totalAdam}} ADAM
                             </el-row>
                             <el-row class="second_text">
-                                Network pledge amount
+                                Network Pledge Amount
                                 <el-tooltip class="item" effect="dark" content="Total pledge amount of network" placement="right"> 
                                      <el-image class="data_icon" :src="excIcon"></el-image>
                                 </el-tooltip>
