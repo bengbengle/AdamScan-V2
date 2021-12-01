@@ -337,7 +337,18 @@
                 getAccDetailInfo(param).then(
                     res => {
                         var data = res && res.data.length && res.data[0] || null;
-                        if(!data) return
+                        if(!data) {
+                            this.address = "No Data"
+                            this.poolName = "No Data"
+                            this.dataList = {
+                                one: "-",
+                                two: "-",
+                                three: "-",
+                                four: "-",
+                            }
+                            this.initBarData()
+                            return
+                        }
                         // console.info("获取参数：" + JSON.stringify(res))
                         if(res != undefined && res.code == 200){
                             this.poolName = data && data.poolName || '-'
