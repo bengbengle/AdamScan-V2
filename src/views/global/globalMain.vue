@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                             <div class="bottom">
-                                <el-image class="button" :src="circleUrl" @click="jump('https://adamoracle.medium.com/')"></el-image>
+                                <el-image class="button" :src="circleUrl" @click="jump('https://www.youtube.com/channel/UCwAf3rsQIml0X0CdYbEcfMw')"></el-image>
                             </div>
                         </div>
                     </div>
