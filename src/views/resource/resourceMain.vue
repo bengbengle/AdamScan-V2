@@ -339,7 +339,17 @@ export default {
       getAccDetailInfo(param)
         .then((res) => {
           var data = (res && res.data.length && res.data[0]) || null;
-          if (!data) return;
+          if (!data) {
+            this.address = "No Data";
+            this.poolName = "No Data";
+            this.dataList = {
+              one: "-",
+              two: "-",
+              three: "-",
+              four: "-",
+            };
+            this.initBarData();
+          }
           if (res != undefined && res.code == 200) {
             this.poolName = (data && data.poolName) || "-";
             //当前子节点数
