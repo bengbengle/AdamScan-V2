@@ -37,7 +37,7 @@
                                 </div>
                             </div>
                             <div class="bottom">
-                                <el-image class="button" :src="circleUrl" @click="jump()"></el-image>
+                                <el-image class="button" :src="circleUrl" @click="jump('https://www.adamoracle.io/assets/files/adamoracle_whitepaper.pdf')"></el-image>
                             </div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                             <div class="bottom">
-                                <el-image class="button" :src="circleUrl" @click="jump()"></el-image>
+                                <el-image class="button" :src="circleUrl" @click="jump('https://adamoracle.medium.com/')"></el-image>
                             </div>
                         </div>
                     </div>
